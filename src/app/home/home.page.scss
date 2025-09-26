@@ -1,27 +1,35 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+
+.personagem {
+  border: 4px solid red;
+  margin: 10px;
+  height: 140px;
+  width: 140px;
+
+  .active {
+    display: none;
+  }
+
+  .inactive {
+    display: block;
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.on {
+  border-color: greenyellow;
 
-  color: #8c8c8c;
+  .active {
+    display: block !important;
+  }
 
-  margin: 0;
-}
+  .inactive {
+    display: none !important;
 
-#container a {
-  text-decoration: none;
+  }
 }
