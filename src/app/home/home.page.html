@@ -1,38 +1,38 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Werewolf 
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Werewolf
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <br><br>
-  <div class="container">
-    <ion-button (click)="playDawn()">Iniciar vampiros</ion-button> 
-    <ion-button (click)="playNight()">Iniciar noite</ion-button> 
+    <br><br>
+    <div class="container">
+        <ion-button (click)="playDawn()">Iniciar vampiros</ion-button>
+        <ion-button (click)="playNight()">Iniciar noite</ion-button>
 
-    <ion-button (click)="loadPersonagens()" color="success">Recarregar</ion-button> 
-    <!--<ion-button (click)="stopBg()" color="danger">parar</ion-button> -->
-    <ion-button (click)="navigate()" color="warning">config</ion-button> 
-  </div>
-  <br><br>
-  <div class="container">
-    <div *ngFor="let p of vampires">
-      <div class="personagem" id="home_{{p.id}}"  style="display: none">
-        <img src={{p.img}} class="active" alt="">
-        <img src={{p.img_grey}} class="inactive" alt="">
-      </div>
+        <ion-button (click)="loadPersonagens()" color="success">Recarregar</ion-button>
+        <ion-button (click)="newPlay()" color="danger">NOVO PLAY</ion-button>
+        <ion-button (click)="navigate()" color="warning">config</ion-button>
     </div>
-    <div *ngFor="let p of personagens">
-      <div class="personagem" id="home_{{p.id}}"  style="display: none">
-        <img src={{p.img}} class="active" alt="">
-        <img src={{p.img_grey}} class="inactive" alt="">
-      </div>
-    </div>
+    <br><br>
+    <div class="container">
+        <div *ngFor="let p of vampires">
+            <div class="personagem" id="home_{{p.id}}" style="display: none">
+                <img src={{p.img}} class="active" alt="">
+                <img src={{p.img_grey}} class="inactive" alt="">
+            </div>
+        </div>
+        <div *ngFor="let p of personagens">
+            <div class="personagem" id="home_{{p.id}}" style="display: none">
+                <img src={{p.img}} class="active" alt="">
+                <img src={{p.img_grey}} class="inactive" alt="">
+            </div>
+        </div>
 
-   <!--
+        <!--
     <div class="personagem" id="wf" (click)="lobisomen()">
       <img src="/assets/sprites/01-lobisomem.jpg" class="active" alt="">
       <img src="/assets/sprites/01-lobisomem-grey.jpg" class="inactive" alt="">
@@ -76,5 +76,5 @@
       <img src="/assets/sprites/06-b-bruxa.jpg" class="active" alt="">
       <img src="/assets/sprites/06-b-bruxa-grey.jpg" class="inactive" alt="">
     </div> -->
-  </div>
+    </div>
 </ion-content>

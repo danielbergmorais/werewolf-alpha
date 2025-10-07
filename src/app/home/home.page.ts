@@ -13,6 +13,36 @@ export interface Personagem {
     tocar: Function,
 }
 
+export interface Character {
+    name: string, // nome do personagem
+    img: string,// caminho da imagem
+    audios: Array<string>,  // caminhos dos áudios
+    interval: number,// intervalo entre os áudios
+}
+
+function playAudio(src: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+        let audio = new Audio(src);
+
+        audio.onended = () => resolve();
+        audio.onerror = (e) => reject(e);
+        audio.play();
+    });
+}
+
+async function playAudiosSequentially(sources: Character[]) {
+    for (const source of sources) {
+        // Play each audio in sequence with the specified interval
+        await playAudio(source.audios[0]);
+
+        // Wait for the specified interval before playing the next audio
+        await new Promise(resolve => setTimeout(resolve, source.interval));
+
+        // Play the second audio
+        await playAudio(source.audios[1]);
+    }
+}
+
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
@@ -20,10 +50,15 @@ export interface Personagem {
 })
 
 
+
+
 export class HomePage {
     public personagens: Array<Personagem>
     public vampires: Array<Personagem>
     private personagens_config: Array<String>
+
+
+
 
     /*** Caminhos diferentes para browser e versão compilada para android **/
 
@@ -316,6 +351,15 @@ export class HomePage {
             },
         ]
         this.personagens_config = []
+    }
+
+    newPlay() {
+        let ls2 = localStorage.getItem("selecteds");
+        let selecteds: Character[] = []
+        if (ls2) {
+            selecteds = JSON.parse(ls2)
+        }
+        playAudiosSequentially(selecteds);
     }
 
     bgAudio() {
