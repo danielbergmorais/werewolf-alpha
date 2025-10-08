@@ -8,16 +8,33 @@
 
 <ion-content [fullscreen]="true">
 
-    <br><br>
     <div class="container">
-        <ion-button (click)="playDawn()">Iniciar vampiros</ion-button>
-        <ion-button (click)="playNight()">Iniciar noite</ion-button>
+        <!-- <ion-button (click)="playDawn()">Iniciar vampiros</ion-button> -->
+        <!-- <ion-button (click)="playNight()">Iniciar noite</ion-button> -->
 
-        <ion-button (click)="loadPersonagens()" color="success">Recarregar</ion-button>
-        <ion-button (click)="newPlay()" color="danger">NOVO PLAY</ion-button>
-        <ion-button (click)="navigate()" color="warning">config</ion-button>
+        <!-- <ion-button (click)="loadPersonagens()" color="success">Recarregar</ion-button> -->
+        <!-- <ion-button (click)="newPlay()" color="danger">NOVO PLAY</ion-button> -->
+        <!-- <ion-button (click)="navigate()" color="warning">config</ion-button> -->
+
+        <ion-button (click)="newPlay()" *ngIf="!playingAudio" color="success">
+            <ion-col>
+                <ion-row style="display: block">
+                    <ion-icon name="play" class="button-icon"></ion-icon>
+                </ion-row>
+                <ion-row>Play</ion-row>
+            </ion-col>
+        </ion-button>
+
+        <ion-button (click)="stop()" *ngIf="playingAudio" color="danger">
+            <ion-col>
+                <ion-row style="display: block">
+                    <ion-icon name="square" class="button-icon"></ion-icon>
+                </ion-row>
+                <ion-row>Stop</ion-row>
+            </ion-col>
+        </ion-button>
     </div>
-    <br><br>
+
     <div class="container">
         <div *ngFor="let p of vampires">
             <div class="personagem" id="home_{{p.id}}" style="display: none">
@@ -31,50 +48,5 @@
                 <img src={{p.img_grey}} class="inactive" alt="">
             </div>
         </div>
-
-        <!--
-    <div class="personagem" id="wf" (click)="lobisomen()">
-      <img src="/assets/sprites/01-lobisomem.jpg" class="active" alt="">
-      <img src="/assets/sprites/01-lobisomem-grey.jpg" class="inactive" alt="">
-    </div>
-    <div class="personagem" id="mi" (click)="minion()">
-      <img src="/assets/sprites/02-minion.jpg" class="active" alt="">
-      <img src="/assets/sprites/02-minion-grey.jpg" class="inactive" alt="">
-    </div>
-    <div class="personagem" id="ma" (click)="mason()">
-      <img src="/assets/sprites/03-mason.jpg" class="active" alt="">
-      <img src="/assets/sprites/03-mason-grey.jpg" class="inactive" alt="">
-    </div>
-    <div class="personagem" id="vi" (click)="vidente()">
-      <img src="/assets/sprites/04-vidente.jpg" class="active" alt="">
-      <img src="/assets/sprites/04-vidente-grey.jpg" class="inactive" alt="">
-    </div>
-
-    <div class="personagem" id="la"  (click)="ladrao()">
-      <img src="/assets/sprites/05-ladrao.jpg" class="active" alt="">
-      <img src="/assets/sprites/05-ladrao-grey.jpg" class="inactive" alt="">
-    </div>
-    <div class="personagem" id="en"  (click)="encrenqueira()">
-      <img src="/assets/sprites/06-encrenqueira.jpg" class="active" alt="">
-      <img src="/assets/sprites/06-encrenqueira-grey.jpg" class="inactive" alt="">
-    </div>
-    <div class="personagem" id="be" (click)="bebado()">
-      <img src="/assets/sprites/07-bebado.jpg" class="active" alt="">
-      <img src="/assets/sprites/07-bebado-grey.jpg" class="inactive" alt="">
-    </div>
-    <div class="personagem" id="so" (click)="sonambula()">
-      <img src="/assets/sprites/08-sonambula.jpg" class="active" alt="">
-      <img src="/assets/sprites/08-sonambula-grey.jpg" class="inactive" alt="">
-    </div>
-
-    <div class="personagem" id="iv" (click)="investigador()">
-      <img src="/assets/sprites/05-c-investigador-paranormal.jpg" class="active" alt="">
-      <img src="/assets/sprites/05-c-investigador-paranormal-grey.jpg" class="inactive" alt="">
-    </div>
-
-    <div class="personagem" id="wt" (click)="bruxa()">
-      <img src="/assets/sprites/06-b-bruxa.jpg" class="active" alt="">
-      <img src="/assets/sprites/06-b-bruxa-grey.jpg" class="inactive" alt="">
-    </div> -->
     </div>
 </ion-content>

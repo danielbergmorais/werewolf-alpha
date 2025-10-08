@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NativeAudio } from '@capacitor-community/native-audio';
 import { Router } from '@angular/router';
+import { audioService } from '../services/audio.service';
+import { Character, charactersList } from '../services/characters.list';
 
 export interface Personagem {
     id: string,
@@ -13,34 +15,8 @@ export interface Personagem {
     tocar: Function,
 }
 
-export interface Character {
-    name: string, // nome do personagem
-    img: string,// caminho da imagem
-    audios: Array<string>,  // caminhos dos áudios
-    interval: number,// intervalo entre os áudios
-}
-
-function playAudio(src: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-        let audio = new Audio(src);
-
-        audio.onended = () => resolve();
-        audio.onerror = (e) => reject(e);
-        audio.play();
-    });
-}
-
-async function playAudiosSequentially(sources: Character[]) {
-    for (const source of sources) {
-        // Play each audio in sequence with the specified interval
-        await playAudio(source.audios[0]);
-
-        // Wait for the specified interval before playing the next audio
-        await new Promise(resolve => setTimeout(resolve, source.interval));
-
-        // Play the second audio
-        await playAudio(source.audios[1]);
-    }
+function waitForAWhile(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 @Component({
@@ -49,14 +25,12 @@ async function playAudiosSequentially(sources: Character[]) {
     styleUrls: ['home.page.scss'],
 })
 
-
-
-
 export class HomePage {
+    private personagens_config: Array<String>
     public personagens: Array<Personagem>
     public vampires: Array<Personagem>
-    private personagens_config: Array<String>
-
+    public playingAudio: boolean = false;
+    private selecteds: Character[] = []
 
 
 
@@ -351,15 +325,29 @@ export class HomePage {
             },
         ]
         this.personagens_config = []
+
+        let ls = localStorage.getItem("selecteds");
+        if (ls) {
+            this.selecteds = JSON.parse(ls)
+        }
     }
 
-    newPlay() {
-        let ls2 = localStorage.getItem("selecteds");
-        let selecteds: Character[] = []
-        if (ls2) {
-            selecteds = JSON.parse(ls2)
-        }
-        playAudiosSequentially(selecteds);
+    async newPlay() {
+        this.playingAudio = true;
+
+        audioService.playLoop('assets/sounds/bg.mp3');
+        await audioService.waitForAWhile(2000);
+        await audioService.playAudio('assets/sounds/begin.mp3');
+        await audioService.playAudiosSequentially(this.selecteds);
+        await audioService.playAudio('assets/sounds/end.mp3');
+        await audioService.waitForAWhile(2000);
+        audioService.stopLoop();
+    }
+
+    stop() {
+        this.playingAudio = false;
+        audioService.stopAudio();
+        audioService.stopLoop();
     }
 
     bgAudio() {

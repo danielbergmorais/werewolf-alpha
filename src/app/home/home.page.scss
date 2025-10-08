@@ -1,35 +1,51 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
 .personagem {
-  border: 4px solid red;
-  margin: 10px;
-  height: 140px;
-  width: 140px;
+    border: 4px solid red;
+    margin: 10px;
+    height: 140px;
+    width: 140px;
 
-  .active {
-    display: none;
-  }
+    .active {
+        display: none;
+    }
 
-  .inactive {
-    display: block;
-  }
+    .inactive {
+        display: block;
+    }
 }
 
 .on {
-  border-color: greenyellow;
+    border-color: greenyellow;
 
-  .active {
-    display: block !important;
-  }
+    .active {
+        display: block !important;
+    }
 
-  .inactive {
-    display: none !important;
+    .inactive {
+        display: none !important;
 
-  }
+    }
+}
+
+ion-button {
+    width: 80px;
+}
+
+ion-icon {
+    font-size: 28px;
+    margin-bottom: 5px;
+
+}
+
+ion-row {
+    color: white;
+    text-align: center;
 }
