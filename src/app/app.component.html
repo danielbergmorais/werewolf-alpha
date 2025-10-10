@@ -1,3 +1,31 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <!-- Side menu -->
+    <ion-menu contentId="main-content" type="overlay">
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item routerLink="/home" routerDirection="root">Home</ion-item>
+                <ion-item routerLink="/config" routerDirection="root">Configurações</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <!-- Main content area -->
+    <div class="ion-page" id="main-content">
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title>{{ pageTitle }}</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <router-outlet></router-outlet>
+        </ion-content>
+    </div>
 </ion-app>
