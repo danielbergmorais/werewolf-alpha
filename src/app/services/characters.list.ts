@@ -1,8 +1,8 @@
 export interface Character {
-    name: string, // nome do personagem
-    img: string,// caminho da imagem
-    audios: Array<string>,  // caminhos dos áudios
-    interval: number,// intervalo entre os áudios
+    name: string,
+    img: string,
+    audios: Array<string>,
+    interval: number,
 }
 
 export const charactersList = [
@@ -57,6 +57,42 @@ export const charactersList = [
         audios: [
             '/assets/audios/ladrao/ladrao-1.mp3',
             '/assets/audios/ladrao/ladrao-2.mp3',
+        ],
+        interval: 2000,
+    },
+    {
+        name: 'Bruxa',
+        img: '/assets/sprites/06-b-bruxa.jpg',
+        audios: [
+            '/assets/audios/bruxa/bruxa-1.mp3',
+            '/assets/audios/bruxa/bruxa-2.mp3',
+        ],
+        interval: 2000,
+    },
+    {
+        name: 'Encrenqueira',
+        img: '/assets/sprites/06-encrenqueira.jpg',
+        audios: [
+            '/assets/audios/encrenqueira/encrenqueira-1.mp3',
+            '/assets/audios/encrenqueira/encrenqueira-2.mp3',
+        ],
+        interval: 2000,
+    },
+    {
+        name: 'Bêbado',
+        img: '/assets/sprites/07-bebado.jpg',
+        audios: [
+            '/assets/audios/bebado/bebado-1.mp3',
+            '/assets/audios/bebado/bebado-2.mp3',
+        ],
+        interval: 2000,
+    },
+    {
+        name: 'Sonâmbula',
+        img: '/assets/sprites/08-sonambula.jpg',
+        audios: [
+            '/assets/audios/sonambula/sonambula-1.mp3',
+            '/assets/audios/sonambula/sonambula-2.mp3',
         ],
         interval: 2000,
     },

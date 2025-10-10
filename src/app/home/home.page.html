@@ -9,14 +9,9 @@
 <ion-content [fullscreen]="true">
 
     <div class="container">
-        <!-- <ion-button (click)="playDawn()">Iniciar vampiros</ion-button> -->
-        <!-- <ion-button (click)="playNight()">Iniciar noite</ion-button> -->
 
-        <!-- <ion-button (click)="loadPersonagens()" color="success">Recarregar</ion-button> -->
-        <!-- <ion-button (click)="newPlay()" color="danger">NOVO PLAY</ion-button> -->
-        <!-- <ion-button (click)="navigate()" color="warning">config</ion-button> -->
 
-        <ion-button (click)="newPlay()" *ngIf="!playingAudio" color="success">
+        <ion-button (click)="play()" *ngIf="!currentPlayingAudio.isplaying" color="success">
             <ion-col>
                 <ion-row style="display: block">
                     <ion-icon name="play" class="button-icon"></ion-icon>
@@ -25,7 +20,7 @@
             </ion-col>
         </ion-button>
 
-        <ion-button (click)="stop()" *ngIf="playingAudio" color="danger">
+        <ion-button (click)="stop()" *ngIf="currentPlayingAudio.isplaying" color="danger">
             <ion-col>
                 <ion-row style="display: block">
                     <ion-icon name="square" class="button-icon"></ion-icon>
@@ -36,16 +31,10 @@
     </div>
 
     <div class="container">
-        <div *ngFor="let p of vampires">
-            <div class="personagem" id="home_{{p.id}}" style="display: none">
-                <img src={{p.img}} class="active" alt="">
-                <img src={{p.img_grey}} class="inactive" alt="">
-            </div>
-        </div>
-        <div *ngFor="let p of personagens">
-            <div class="personagem" id="home_{{p.id}}" style="display: none">
-                <img src={{p.img}} class="active" alt="">
-                <img src={{p.img_grey}} class="inactive" alt="">
+
+        <div *ngFor="let p of selecteds">
+            <div class="personagem" id="home_{{p.name}}">
+                <img src={{p.img}} [ngClass]="{active: p.name == currentPlayingAudio.value}">
             </div>
         </div>
     </div>

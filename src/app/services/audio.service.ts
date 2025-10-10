@@ -39,10 +39,11 @@ class AudioService {
         }
     }
 
-    async playAudiosSequentially(sources: Character[]) {
+    async playAudiosSequentially(sources: Character[], currentPlayingAudio: { value: string }): Promise<void> {
         for (const source of sources) {
 
             console.log('Playing audios for character:', source.name);
+            currentPlayingAudio.value = source.name;
             if (!this.isPlaying) break;
             await this.playAudio(source.audios[0]);
 
