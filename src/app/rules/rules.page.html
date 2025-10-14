@@ -1,0 +1,357 @@
+<ion-content [fullscreen]="true">
+    <div class="container">
+
+        <h1>Regras</h1>
+
+        <p>1. Existem varios personagens que possuem ação durante a noite.</p>
+        <p>2. Jogadores que possuem as cartas dos personagens Aldeão, Suicida ou Caçador, nunca acordam durante a noite.
+        </p>
+        <p>3. O narrador é responsável por chamar os personagens em ordem e descrever sua ação se necessário.</p>
+        <p>4. O jogador com o personagem chamado, acorda realiza sua ação antes de voltar a dormir.</p>
+        <p>5. Após o final da noite, ou narração. Os jogadores devem decidir coletivamente quem deve ser eliminado da
+            vila.</p>
+        <p>6. Se o jogador com a carta de lobisomem for eliminado, os aldeões vencem.</p>
+        <p>7. Se o jogador com a carta de personagem da vila for eliminado, os lobisomens vencem.</p>
+        <p>8. O suicida é um personagem que vence sozinho, se ele for eliminado pela votação.</p>
+        <p>9. Em alguns casos, a vila pode decidir que não existem lobisomens entre os jogadores, e decidir por paz na
+            vila. Com isso ninguém é eliminado e os jogadores devem se revelar.</p>
+    </div>
+    <div class="container">
+        <ion-accordion-group #accordionGroup>
+            <ion-accordion value="first">
+                <ion-item slot="header" color="light">
+                    <ion-label>Setup básico</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <p> A configuração do jogo é basead no número de jogadores (3-10). Para seu primeiro jogo, é
+                        recomendado que
+                        vocês jogem com 3 ou 5 jogadores para um jogo rápido e compreensão da mecanica.
+                        (Se tiver mais jogadores, não se preocupe. O jogo é bastante rápido e todo mundo irá se divertir
+                        assistindo)
+                    </p>
+                    <p>Exemplo:</p>
+                    <p> 3 jogadores: 2 Lobisomens, 1 Vidente, 1 Ladrão, 1 Encrenqueira, 1 Sonambula</p>
+                    <p> 5 jogadores: 2 Lobisomens, 1 Minion, 1 Vidente, 1 Ladrão, 1 Caçador, 1 Encrenqueira, 1 Bruxa</p>
+                    <p> 7 jogadores: 2 Lobisomens, 1 Minion, 1 Vidente, 1 Ladrão, 1 Caçador, 1 Encrenqueira, 1 Bruxa, 1
+                        Suicida, 1 Sonambula</p>
+                    <p> 9 jogadores: 2 Lobisomens, 2 Masons, 1 Vidente, 1 Ladrão, 1 Caçador, 1 Encrenqueira, 1 Bruxa, 1
+                        Suicida, 1 Bruxa, 1 Sonambula</p>
+
+                    <p> Deve sempre ter 3 cartas a mais do que o número de jogadores. Embaralhe todas as cartas e
+                        distribua uma para cada jogador.
+                        As cartas restantes ficam no centro da mesa.</p>
+
+                    <p>Cada jogador deve ver secretamente sua própria carta e deixá-la virada para baixo próximo às 3
+                        cartas do
+                        centro.</p>
+                </div>
+            </ion-accordion>
+            <ion-accordion value="second">
+                <ion-item slot="header" color="light">
+                    <ion-label>Noite</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <p>
+                        Existem vários personagens que são chamados durante a noite e possuem uma ação. Porem, jogadores
+                        com um aldeão, suicida ou caçador, nunca acordam durante a noite.
+                    </p>
+
+                    <p>
+                        Em adição a possuir uma carta de personagem, um jogador é designado como narrador e anuncia cada
+                        personagem em ordem e silenciosamente conta até 10 após cada personagem acordar, jogadores com
+                        esse personagem executam a ação da noite.
+                    </p>
+
+                    <p><strong>Exemplo de narração:</strong></p>
+                    <p>Narrador:
+                        <strong> "Todos os jogadores, fechem seus olhos"</strong>
+                        <span> Todo mundo fecha os olhos, inclusive o narrador</span>
+                    </p>
+                    <p>
+                        <strong>"Lobisomens, acordem e procurem por outros lobisomens."</strong>
+                        <span>Os lobisomens abrem seus olhos e procuram por qualquer um outro jogador que esteja de
+                            olhos abertos (pode acontecer de não ter nenhum outro).
+                        </span>
+                        <br>
+                        <strong>"Lobisomens, fechem seus olhos"</strong>
+                    </p>
+
+                    <p>
+                        <strong>"Vidente, acorde. Você pode olhar a carta do outro jogador ou duas cartas do
+                            centro."</strong>
+                        <span> O jogador com a carta da vidente abre seus olhos e pode olhar em silencio uma carta de
+                            outro jogador ou duas cartas do centro.</span>
+                        <br>
+                        <strong>"Vidente, feche seus olhos"</strong>
+                    </p>
+                    <p>
+                        <strong>"Ladrão, acorde. Você pode trocar a sua carta com a carta de outro jogador e então olhar
+                            sua nova carta"</strong>
+                        <span> O jogador com a carta da ladrão abre seus olhos e pode em silêncio, trocar sua carta com
+                            a de outro jogador e olhar sua nova carta.</span>
+                        <br>
+                        <strong>"Ladrão, feche seus olhos"</strong>
+                    </p>
+                    <p>
+                        <strong>"Encrequeira, acorde. Você pode trocar as cartas de outros dois jogadores."</strong>
+                        <span> O jogador com a carta da encrequeira abre seus olhos e pode trocar as cartas de outros
+                            dois jogadores sem olhar as cartas.</span>
+                        <br>
+                        <strong>"Encrequeira, feche seus olhos"</strong>
+                    </p>
+                    <p>
+                        <strong>"Todo mundo, acorde."</strong>
+                        <span>Todos os jogadores abrem seus olhos e olham ao redor desconfiados.</span>
+                    </p>
+                    <p>
+                        A noite, jogadores que não possuem ação, não podem se mover, apontar ou fazer qualquer coisa
+                        para se comunicar com os outros jogadores ativos.
+                    </p>
+                </div>
+            </ion-accordion>
+            <ion-accordion value="third">
+                <ion-item slot="header" color="light">
+                    <ion-label>Dia</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <p>
+                        Depois da fase da noite, os jogadores discutem entre si quem eles acreditam que sejam os
+                        lobisomens. Todos os jogadores podem dizer qualquer coisa, mas nunca podem mostrar suas cartas
+                        para ninguém. Lobisomens podem dizer que tem uma função diferente para que eles não morram.
+                    </p>
+                    <p>
+                        Como algumas funções mudam as cartas dos jogadores, alguns jogadores acreditam que eles são uma
+                        coisa que na verdade não são. Depois da fase da noite, sua função e a carta que estiver a sua
+                        frente, que pode ser diferente da sua função original.
+                        <strong>Ninguém pode olhar carta nenhuma depois da fase da Noite</strong>
+                    </p>
+                    <p>Depois de alguns minutos de discussão, os jogadores votam em quem eles acreditam ser um
+                        lobisomem.</p>
+                    <p><strong>"Todo mundo, 3, 2, 1, Votem! </strong>
+                        <span>Cada jogador aponta para outro jogador.</span>
+                    </p>
+                    <p>O jogador com mais votos é eliminado e revela sua carta. Em caso de empate, todos os jogadores
+                        empatados com a maioria dos votos são eliminados e revelam suas cartas.
+                    </p>
+                    <p>Se nenhum jogador receber mais de um voto, ninguem é eliminado. Uma forma dos jogadores
+                        conseguirem
+                        isso é se todos votarem na mesma direção ao redor da mesa, assim cada jogador recebe um
+                        voto (decidam isso como um grupo antes de votarem).</p>
+                </div>
+            </ion-accordion>
+            <ion-accordion value="fourth">
+                <ion-item slot="header" color="light">
+                    <ion-label>Fim de jogo</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <p>Depois de apenas uma noite e um dia...</p>
+                    <p>O time do vilarejo vence:</p>
+                    <p class="ion-padding">1. Se pelo menos um Lobisomem for eliminado. Mesmo que um ou mais jogadores
+                        que não
+                        são lobisomens sejam eliminados além do lobisomem, todos do time da vila vencem.
+                        <br>
+                        2. Se ninguém for o Lobisomem e ninguém for eliminado. É possível que ninguém
+                        seja o Lobisomem se todas as cartas de Lobisomem estiverem no centro.
+                    </p>
+                    <p> O time dos Lobisomens só ganha se pelo menos um jogador for o Lobisomem e nenhum Lobisomem for
+                        morto.</p>
+                    <p> Se estiver jogando com o Suicida, existem regras especiais a respeito de quem vence, veja a
+                        descrição de função de Suicida para mais detalhes.</p>
+                </div>
+            </ion-accordion>
+            <ion-accordion value="fifth">
+                <ion-item slot="header" color="light">
+                    <ion-label>Condições de vitórias dos times</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <p><strong>Time Lobisomem:</strong></p>
+
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Lobisomem" src="/../assets/sprites/lobisomem.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Lobisomem:</strong>
+                        Ganha se nenhum Lobisomem for eliminado e pelo menos um jogador for o Lobisomem. Se o Suicida
+                        estiver no jogo, ganha se nenhum Lobisomem for eliminado e o Suicida ainda estiver vivo.
+                        <br>
+                        <br>
+                        <ion-thumbnail>
+                            <img alt="Favorito" src="/../assets/sprites/minion.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Minion:</strong>
+                        Ganha com os Lobisomens mesmo se ele for eliminado. Se nenhum jogador for um Lobisomem, ganha se
+                        qualquer outro jogador for eliminado enquanto ele (minion) e o suicida estiverem vivos.
+                    </p>
+                    <p><strong>Time da Vila:</strong></p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Aldeao" src="/../assets/sprites/aldeao.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        Ganha se pelo menos um dos Lobisomens for eliminado (mesmo se algum jogador do time da vila for
+                        eliminado). Se nenhum jogador for o Lobisomem, só ganha se ninguém (nem mesmo o suicida ou o
+                        minion) for eliminado.
+                    </p>
+                    <br>
+                    <p>
+                        <strong>Time do Suicida:</strong>
+                    </p>
+
+                    <p class="ion-padding">
+
+                        <ion-thumbnail>
+                            <img alt="Curtidor" src="/../assets/sprites/suicida.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        Ganha se ele (suicida) for eliminado.
+                    </p>
+                    <p><strong>Regras extras:</strong></p>
+                    <p>
+                        O ladrão só acorda uma vez durante a noite, mesmo que ele roube um papel que acorde depois.
+                    </p>
+                    <p>O papel visto pelo jogador Doppelganger se move com a carta Doppelganger, o jogador que terminar
+                        com essa carta tem o papel visto pelo jogador Doppelganger original
+                    </p>
+                    <p>
+                        Ações noturnas como a do Doppelganger, Ladrão, Encrenqueira, Vidente, Bruxa e Sonambula são
+                        <strong>opcionais</strong>.
+                        Ações noturnas dos Lobisomens, Masons e Bêbado são <strong>obrigatórias</strong>.
+                    </p>
+                </div>
+            </ion-accordion>
+            <ion-accordion value="sixth">
+                <ion-item slot="header" color="light">
+                    <ion-label>Ações dos personagens</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Lobisomem" src="/../assets/sprites/lobisomem.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Lobisomem:</strong>
+                        A noite, todos os lobisomens acordam e se reconhecem. Se ninguem abrir os olhoes, os outros
+                        lobisomens estão no centro da mesa.
+                        <br>
+                        Opção de Lobo Solitário: Se houver apenas um lobisomem no jogo , o Lobisomem pode olhar uma
+                        carta no centro. Isto é extremamente benéfico para o Lobisomem, que não tem um parceiro e
+                        fornece uma ferramenta util para enganar os outros jogadores.
+
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Minion" src="/../assets/sprites/minion.jpg" />
+                        </ion-thumbnail>
+                        <strong>Minion:</strong>
+                        Age logo após a ação dos Lobisomens. o Minion acorda e ve quem são os Lobisomens, Durante esta
+                        fase, todos os Lobisomens colocam seus dedões para cima para que o Minion possa ver quem são.
+                        Os Lobisomens não sabem quem é o Minion. Se o Minion for eliminado e nenhum Lobisomem for
+                        eliminado, os Lobisomens (e o Minion) vencem.
+                        Se nenhum jogador for Lobisomem, o Minion vence se qualquer outro jogador for eliminado(que não
+                        seja Minion). Esta função pode ser um aliado muito poderoso para o time dos Lobisomens.
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Masons" src="/../assets/sprites/mason.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Maçom:</strong>
+                        Quando estiver usando os Maçons, coloque os dois no jogo. O Maçom acorda durante a noite e
+                        procura o outro Maçom.
+                        Se o Maçom não encontrar outro Maçom, ele sabe que o outro está no centro da mesa.
+                        <span> Os Maçons está no time do vilarejo.</span>
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Vidente" src="/../assets/sprites/vidente.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Vidente:</strong>
+                        A noite, o Vidente acorda e pode olhar a carta de outro jogador ou duas cartas do centro da
+                        mesa, mas não pode move-las.
+                        <span> A Vidente está no time do vilarejo.</span>
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Ladrão" src="/../assets/sprites/ladrao.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Ladrão:</strong>
+                        A noite, o Ladrão acorda e pode roubar uma carta de outro jogador e colocar sua carta no lugar
+                        da outra carta.
+                        Então o Ladrão pode olhar sua nova carta. O jogador que recebe a carta do Ladrão está no time da
+                        vila. O Ladrão fica no time da carta que ele pegou, no entanto, ele não faz a ação da nova carta
+                        durante a noite.
+                        <br>
+                        Se o Ladrão escolher não roubar a carta do outro jogador, ele permanece como Ladrão.
+                        <span> O Ladrão está no time do vilarejo.</span>
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Encrenqueira" src="/../assets/sprites/encrenqueira.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Encrenqueira:</strong>
+                        A noite, a Encrenqueira acorda e pode trocar as cartas de dois outros jogadores sem olhar as
+                        cartas.
+                        Os jogadores que recebem as cartas diferentes são agora do time da carta que eles receberam,
+                        mesmo que eles não saibam e essa função permanece ate o final do jogo.
+                        <span> O encrenqueiro esta no time do vilarejo.</span>
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Bebado" src="/../assets/sprites/bebado.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Bebado:</strong>
+                        O bêbado está tão bêbado que não se lembra da sua função. Quando for a hora de acordar durante a
+                        noite, ele deve trocar sua carta de Bêbado por qualquer carta do centro, mas ele não olha a sua
+                        carta. o Bebado assume a função da carta sua frente (mesmo qeu ele não saiba que função é essa)
+                        e esta no time dessa função.
+
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Sonâmbula" src="/../assets/sprites/sonambula.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Sonâmbula:</strong>
+                        A Sonâmbula acorda e procura pela sua carta (pra ver se ela mudou). Apenas use a Sonâmbula se o
+                        ladrão ou encrenqueira estiverem no jogo.
+                        <span> A Sonâmbula está no time do vilarejo.</span>
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Caçador" src="/../assets/sprites/caçador.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Caçador:</strong>
+                        O Caçador não acorda durante a noite. Se o Caçador for eliminado,o outro jogador que ele estiver
+                        apontando é eliminado também.
+                        <span> O Caçador está no time do vilarejo.</span>
+                    </p>
+                    <p class="ion-padding">
+                        <ion-thumbnail>
+                            <img alt="Suicida" src="/../assets/sprites/suicida.jpg" />
+                        </ion-thumbnail>
+                        <br>
+                        <strong>Suicida:</strong>
+                        O Suicida odeia tanto seu trabalho que ele quer morrer.
+                    </p>
+                    <ul>
+                        <li>Se o Suicida for eliminado, ele vence sozinho.</li>
+                        <li>Se o Suicida for eliminado e nenhum Lobisomem for eliminado, os Lobisomens não vencem.</li>
+                        <li>Se o Suicida for eliminado e um Lobisomem também, o time da Vila também vence.</li>
+                        <li>O Suicida é considerado membro da Vila (mas ele não esta no time deles), portanto se o
+                            Suicida for eliminado, e todos os Lobisomens estiverm no centro, o time da Vila perde</li>
+                    </ul>
+                </div>
+            </ion-accordion>
+        </ion-accordion-group>
+
+
+    </div>
+
+</ion-content>

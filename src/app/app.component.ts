@@ -8,7 +8,7 @@ import { filter, map, mergeMap } from 'rxjs/operators';
     styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-    pageTitle: string = 'Were Wolf';
+    pageTitle: string = 'Werewolf';
     constructor(private router: Router, private activatedRoute: ActivatedRoute) {
         this.router.events
             .pipe(
@@ -24,7 +24,7 @@ export class AppComponent {
                 mergeMap(route => route!.data)
             )
             .subscribe(data => {
-                this.pageTitle = data['title'] || 'Were Wolf';
+                this.pageTitle = data['title'] || 'Werewolf';
             });
     }
 }

@@ -21,8 +21,9 @@
 
     <div class="container">
         <div *ngFor="let p of selecteds">
-            <div class="personagem" id="home_{{p.name}}">
-                <img src={{p.img}} [ngClass]="{active: p.name == currentPlayingAudio.value}">
+            <div class="personagem" id="home_{{p.name}}" style="background-image: url('{{p.img}}');"
+                [ngClass]="{active: p.name == currentPlayingAudio.value}">
+                <!-- <img src={{p.img}}> -->
             </div>
         </div>
     </div>

@@ -10,12 +10,14 @@
     margin: 10px;
     height: 140px;
     width: 140px;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    img {
-        filter: grayscale(100%);
-    }
+    // img {
+    filter: grayscale(100%);
+    // }
 
-    .active {
+    &.active {
         filter: grayscale(0%);
     }
 }

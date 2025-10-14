@@ -20,6 +20,11 @@ const routes: Routes = [
     {
         path: 'voices',
         loadChildren: () => import('./voices/voices.module').then(m => m.VoicesPageModule),
+        data: { title: 'Vozes' }
+    },
+    {
+        path: 'rules',
+        loadChildren: () => import('./rules/rules.module').then(m => m.RulesPageModule)
     },
 ];
 

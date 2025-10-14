@@ -46,7 +46,7 @@ export class HomePage {
         await audioService.playAudiosSequentially(this.selecteds, this.currentPlayingAudio);
         await audioService.playAudio('assets/sounds/end.mp3');
         await audioService.waitForAWhile(2000);
-        audioService.stopLoop();
+        this.stop();
     }
 
     stop() {
