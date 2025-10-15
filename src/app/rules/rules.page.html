@@ -226,132 +226,164 @@
                     <ion-label>Ações dos personagens</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content">
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Lobisomem" src="/../assets/sprites/lobisomem.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Lobisomem:</strong>
-                        A noite, todos os lobisomens acordam e se reconhecem. Se ninguem abrir os olhoes, os outros
-                        lobisomens estão no centro da mesa.
-                        <br>
-                        Opção de Lobo Solitário: Se houver apenas um lobisomem no jogo , o Lobisomem pode olhar uma
-                        carta no centro. Isto é extremamente benéfico para o Lobisomem, que não tem um parceiro e
-                        fornece uma ferramenta util para enganar os outros jogadores.
 
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Minion" src="/../assets/sprites/minion.jpg" />
-                        </ion-thumbnail>
-                        <strong>Minion:</strong>
-                        Age logo após a ação dos Lobisomens. o Minion acorda e ve quem são os Lobisomens, Durante esta
-                        fase, todos os Lobisomens colocam seus dedões para cima para que o Minion possa ver quem são.
-                        Os Lobisomens não sabem quem é o Minion. Se o Minion for eliminado e nenhum Lobisomem for
-                        eliminado, os Lobisomens (e o Minion) vencem.
-                        Se nenhum jogador for Lobisomem, o Minion vence se qualquer outro jogador for eliminado(que não
-                        seja Minion). Esta função pode ser um aliado muito poderoso para o time dos Lobisomens.
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Masons" src="/../assets/sprites/mason.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Maçom:</strong>
-                        Quando estiver usando os Maçons, coloque os dois no jogo. O Maçom acorda durante a noite e
-                        procura o outro Maçom.
-                        Se o Maçom não encontrar outro Maçom, ele sabe que o outro está no centro da mesa.
-                        <span> Os Maçons está no time do vilarejo.</span>
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Vidente" src="/../assets/sprites/vidente.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Vidente:</strong>
-                        A noite, o Vidente acorda e pode olhar a carta de outro jogador ou duas cartas do centro da
-                        mesa, mas não pode move-las.
-                        <span> A Vidente está no time do vilarejo.</span>
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Ladrão" src="/../assets/sprites/ladrao.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Ladrão:</strong>
-                        A noite, o Ladrão acorda e pode roubar uma carta de outro jogador e colocar sua carta no lugar
-                        da outra carta.
-                        Então o Ladrão pode olhar sua nova carta. O jogador que recebe a carta do Ladrão está no time da
-                        vila. O Ladrão fica no time da carta que ele pegou, no entanto, ele não faz a ação da nova carta
-                        durante a noite.
-                        <br>
-                        Se o Ladrão escolher não roubar a carta do outro jogador, ele permanece como Ladrão.
-                        <span> O Ladrão está no time do vilarejo.</span>
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Encrenqueira" src="/../assets/sprites/encrenqueira.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Encrenqueira:</strong>
-                        A noite, a Encrenqueira acorda e pode trocar as cartas de dois outros jogadores sem olhar as
-                        cartas.
-                        Os jogadores que recebem as cartas diferentes são agora do time da carta que eles receberam,
-                        mesmo que eles não saibam e essa função permanece ate o final do jogo.
-                        <span> O encrenqueiro esta no time do vilarejo.</span>
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Bebado" src="/../assets/sprites/bebado.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Bebado:</strong>
-                        O bêbado está tão bêbado que não se lembra da sua função. Quando for a hora de acordar durante a
-                        noite, ele deve trocar sua carta de Bêbado por qualquer carta do centro, mas ele não olha a sua
-                        carta. o Bebado assume a função da carta sua frente (mesmo qeu ele não saiba que função é essa)
-                        e esta no time dessa função.
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/lobisomem.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Lobisomem</ion-card-title>
+                        </ion-card-header>
 
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Sonâmbula" src="/../assets/sprites/sonambula.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Sonâmbula:</strong>
-                        A Sonâmbula acorda e procura pela sua carta (pra ver se ela mudou). Apenas use a Sonâmbula se o
-                        ladrão ou encrenqueira estiverem no jogo.
-                        <span> A Sonâmbula está no time do vilarejo.</span>
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Caçador" src="/../assets/sprites/caçador.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Caçador:</strong>
-                        O Caçador não acorda durante a noite. Se o Caçador for eliminado,o outro jogador que ele estiver
-                        apontando é eliminado também.
-                        <span> O Caçador está no time do vilarejo.</span>
-                    </p>
-                    <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Suicida" src="/../assets/sprites/suicida.jpg" />
-                        </ion-thumbnail>
-                        <br>
-                        <strong>Suicida:</strong>
-                        O Suicida odeia tanto seu trabalho que ele quer morrer.
-                    </p>
-                    <ul>
-                        <li>Se o Suicida for eliminado, ele vence sozinho.</li>
-                        <li>Se o Suicida for eliminado e nenhum Lobisomem for eliminado, os Lobisomens não vencem.</li>
-                        <li>Se o Suicida for eliminado e um Lobisomem também, o time da Vila também vence.</li>
-                        <li>O Suicida é considerado membro da Vila (mas ele não esta no time deles), portanto se o
-                            Suicida for eliminado, e todos os Lobisomens estiverm no centro, o time da Vila perde</li>
-                    </ul>
+                        <ion-card-content>
+                            A noite, todos os lobisomens acordam e se reconhecem. Se ninguem abrir os olhoes, os outros
+                            lobisomens estão no centro da mesa.
+                            <br>
+                            Opção de Lobo Solitário: Se houver apenas um lobisomem no jogo , o Lobisomem pode olhar uma
+                            carta no centro. Isto é extremamente benéfico para o Lobisomem, que não tem um parceiro e
+                            fornece uma ferramenta util para enganar os outros jogadores.
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/minion.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Minion</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            Age logo após a ação dos Lobisomens. o Minion acorda e ve quem são os Lobisomens, Durante
+                            esta fase, todos os Lobisomens colocam seus dedões para cima para que o Minion possa ver
+                            quem são.
+                            Os Lobisomens não sabem quem é o Minion. Se o Minion for eliminado e nenhum Lobisomem for
+                            eliminado, os Lobisomens (e o Minion) vencem.
+                            Se nenhum jogador for Lobisomem, o Minion vence se qualquer outro jogador for eliminado
+                            (que não seja Minion). Esta função pode ser um aliado muito poderoso para o time dos
+                            Lobisomens.
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/mason.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Maçom</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            A Quando estiver usando os Maçons, coloque os dois no jogo. O Maçom acorda durante a noite e
+                            procura o outro Maçom.
+                            Se o Maçom não encontrar outro Maçom, ele sabe que o outro está no centro da mesa.
+                            <span> Os Maçons está no time do vilarejo.</span>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/vidente.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Vidente</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            A noite, o Vidente acorda e pode olhar a carta de outro jogador ou duas cartas do centro da
+                            mesa, mas não pode move-las.
+                            <span> A Vidente está no time do vilarejo.</span>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/ladrao.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Ladrão</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            A noite, o Ladrão acorda e pode roubar uma carta de outro jogador e colocar sua carta no
+                            lugar da outra carta.
+                            Então o Ladrão pode olhar sua nova carta. O jogador que recebe a carta do Ladrão está no
+                            time da vila. O Ladrão fica no time da carta que ele pegou, no entanto, ele não faz a ação
+                            da nova carta durante a noite.
+                            <br>
+                            Se o Ladrão escolher não roubar a carta do outro jogador, ele permanece como Ladrão.
+                            <span> O Ladrão está no time do vilarejo.</span>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/encrenqueira.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Encrenqueira</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            A noite, a Encrenqueira acorda e pode trocar as cartas de dois outros jogadores sem olhar as
+                            cartas.
+                            Os jogadores que recebem as cartas diferentes são agora do time da carta que eles receberam,
+                            mesmo que eles não saibam e essa função permanece ate o final do jogo.
+                            <span> O encrenqueiro esta no time do vilarejo.</span>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/bebado.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Bêbado</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            O Bêbado está tão bêbado que não se lembra da sua função. Quando for a hora de acordar
+                            durante a noite, ele deve trocar sua carta de Bêbado por qualquer carta do centro, mas ele
+                            não olha a sua carta.
+                            O Bêbado assume a função da carta sua frente (mesmo que ele não saiba que função é essa)
+                            e está no time dessa função.
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/sonambula.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Sonâmbula</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            A Sonâmbula acorda e procura pela sua carta (pra ver se ela mudou). Apenas use a Sonâmbula
+                            se o ladrão ou encrenqueira estiverem no jogo.
+                            <span> A Sonâmbula está no time do vilarejo.</span>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/caçador.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Caçador</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            O Caçador não acorda durante a noite. Se o Caçador for eliminado,o outro jogador que ele
+                            estiver apontando é eliminado também.
+                            <span> O Caçador está no time do vilarejo.</span>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <div class="personagem" style="background-image: url('/../assets/sprites/suicida.jpg');">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>Suicida</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            <p> O Suicida odeia tanto seu trabalho que ele quer morrer.</p>
+                            <ul>
+                                <li>Se o Suicida for eliminado, ele vence sozinho.</li>
+                                <li>Se o Suicida for eliminado e nenhum Lobisomem for eliminado, os Lobisomens não
+                                    vencem.</li>
+                                <li>Se o Suicida for eliminado e um Lobisomem também, o time da Vila também vence.</li>
+                                <li>O Suicida é considerado membro da Vila (mas ele não esta no time deles), portanto se
+                                    o Suicida for eliminado, e todos os Lobisomens estiverem no centro, o time da Vila
+                                    perde</li>
+                            </ul>
+                        </ion-card-content>
+                    </ion-card>
                 </div>
             </ion-accordion>
         </ion-accordion-group>
-
-
     </div>
-
 </ion-content>
