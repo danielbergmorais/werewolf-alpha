@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
     <div class="container">
         <div *ngFor="let c of characters">
-            <div class="personagem" (click)="onSelect(c.name)" id="{{c.name}}"
+            <div *ngIf="c.interval > 0" class="personagem" (click)="onSelect(c.id)" id="{{c.id}}"
                 style="background-image: url('{{c.img}}');">
             </div>
         </div>

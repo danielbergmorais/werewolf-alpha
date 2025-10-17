@@ -4,20 +4,6 @@ import { Router } from '@angular/router';
 import { audioService } from '../services/audio.service';
 import { Character, charactersList } from '../services/characters.list';
 
-export interface Personagem {
-    id: string,
-    img: string,
-    img_grey: string,
-    audio_begin: string,
-    audio_end: string,
-    timeout_begin: number,
-    timeout_end: number,
-    tocar: Function,
-}
-
-function waitForAWhile(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 @Component({
     selector: 'app-home',
@@ -27,14 +13,13 @@ function waitForAWhile(ms: number): Promise<void> {
 
 export class HomePage {
     public currentPlayingAudio: { isplaying: boolean, value: string } = { isplaying: false, value: '' };
-    public selecteds: Character[] = [];
-    public personagens: Character[] = [];
+    public characters: Character[] = [];
+    public ids: number[] = [];
 
     constructor(private router: Router) {
-        let ls = localStorage.getItem("selecteds");
+        let ls = localStorage.getItem("selectedsIds");
         if (ls) {
-            this.personagens = this.selecteds = JSON.parse(ls)
-
+            this.ids = JSON.parse(ls)
         }
     }
 
@@ -43,7 +28,7 @@ export class HomePage {
         audioService.playLoop('assets/sounds/bg.mp3');
         await audioService.waitForAWhile(2000);
         await audioService.playAudio('assets/sounds/begin.mp3');
-        await audioService.playAudiosSequentially(this.selecteds, this.currentPlayingAudio);
+        await audioService.playAudiosSequentially(this.characters, this.currentPlayingAudio);
         await audioService.playAudio('assets/sounds/end.mp3');
         await audioService.waitForAWhile(2000);
         this.stop();
@@ -61,7 +46,12 @@ export class HomePage {
     }
 
     ngAfterViewInit() {
-
+        this.ids.forEach(element => {
+            const character = charactersList.find(item => item.id === element);
+            if (character) {
+                this.characters.push(character);
+            }
+        });
     }
 
 

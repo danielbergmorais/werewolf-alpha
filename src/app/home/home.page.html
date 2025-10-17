@@ -20,7 +20,7 @@
     </div>
 
     <div class="container">
-        <div *ngFor="let p of selecteds">
+        <div *ngFor="let p of characters">
             <div class="personagem" id="home_{{p.name}}" style="background-image: url('{{p.img}}');"
                 [ngClass]="{active: p.name == currentPlayingAudio.value}">
                 <!-- <img src={{p.img}}> -->

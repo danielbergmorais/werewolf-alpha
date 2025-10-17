@@ -10,47 +10,47 @@ import { Character, charactersList } from '../services/characters.list';
 
 export class ConfigPage implements OnInit {
     public characters: Array<Character>
-    private selecteds: Array<Character> = []
+    // private selecteds: Array<Character> = []
+    private selectedsIds: Array<number> = []
 
     constructor(private router: Router) {
         this.characters = charactersList;
 
-        let ls = localStorage.getItem("selecteds");
+        let ls = localStorage.getItem("selectedsIds");
 
         if (ls) {
-            this.selecteds = JSON.parse(ls)
+            this.selectedsIds = JSON.parse(ls)
         }
     }
 
     ngOnInit() { }
 
     ngAfterViewInit() {
-        this.selecteds.forEach((item: Character) => {
-            let selected = document.getElementById(item.name);
-            if (selected) selected.classList.add("active")
+        this.selectedsIds.forEach((item: number) => {
+            let selectedElement = document.getElementById(item.toString());
+            if (selectedElement) selectedElement.classList.add("active")
         })
 
     }
 
-    onSelect(name: string) {
+    onSelect(id: number) {
 
-        let selected = this.characters.find(item => item.name === name);
-
+        let selected = this.characters.find(item => item.id === id);
         if (!selected) return;
 
-        let index = this.selecteds.findIndex(item => item.name === name);
-        let selectedElement = document.getElementById(name);
+        let index = this.selectedsIds.findIndex(item => item === id);
+        let selectedElement = document.getElementById(id.toString());
 
         if (index >= 0) {
-            this.selecteds.splice(index, 1);
+            this.selectedsIds.splice(index, 1);
             if (selectedElement) selectedElement.classList.remove("active")
         } else {
-            this.selecteds.push(selected);
+            this.selectedsIds.push(selected.id);
             if (selectedElement) selectedElement.classList.add("active");
         }
 
-        this.selecteds.sort((a, b) => a.id - b.id);
-        localStorage.setItem("selecteds", JSON.stringify(this.selecteds));
+        this.selectedsIds.sort((a: number, b: number) => a - b);
+        localStorage.setItem("selectedsIds", JSON.stringify(this.selectedsIds));
     }
 
 }
