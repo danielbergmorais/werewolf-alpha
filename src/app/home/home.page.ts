@@ -27,9 +27,9 @@ export class HomePage {
         this.currentPlayingAudio.isplaying = true;
         audioService.playLoop('assets/sounds/bg.mp3');
         await audioService.waitForAWhile(2000);
-        await audioService.playAudio('assets/sounds/begin.mp3');
+        await audioService.playStartEnd(true);
         await audioService.playAudiosSequentially(this.characters, this.currentPlayingAudio);
-        await audioService.playAudio('assets/sounds/end.mp3');
+        await audioService.playStartEnd(false);
         await audioService.waitForAWhile(2000);
         this.stop();
     }
@@ -48,6 +48,7 @@ export class HomePage {
     ngAfterViewInit() {
         this.ids.forEach(element => {
             const character = charactersList.find(item => item.id === element);
+            console.log(character)
             if (character) {
                 this.characters.push(character);
             }

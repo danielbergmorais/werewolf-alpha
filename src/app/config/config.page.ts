@@ -10,7 +10,6 @@ import { Character, charactersList } from '../services/characters.list';
 
 export class ConfigPage implements OnInit {
     public characters: Array<Character>
-    // private selecteds: Array<Character> = []
     private selectedsIds: Array<number> = []
 
     constructor(private router: Router) {
