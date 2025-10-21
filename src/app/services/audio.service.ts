@@ -1,9 +1,14 @@
-import { Character, CharacterAudio } from "./characters.list";
+import { Character } from "./characters.list";
 
 class AudioService {
     private bgAudio?: HTMLAudioElement;
     private currentAudio?: HTMLAudioElement;
     private isPlaying: boolean = false;
+    private voiceOption: string = 'narakeet';
+
+    constructor() {
+
+    }
 
     playLoop(src: string) {
         this.isPlaying = true;
@@ -40,18 +45,11 @@ class AudioService {
     }
 
     playStartEnd(start: boolean): Promise<void> {
-        let audio = '';
-        let useAI = 2;
-        switch (useAI) {
-            case 1:
-                audio = (start) ? 'assets/sounds/begin.mp3' : 'assets/sounds/end.mp3';
-                break;
-            case 2:
-                audio = (start) ? 'assets/audios-ai/00-begin.mp3' : 'assets/audios-ai/01-end.mp3';
-                break;
-            default:
-                audio = (start) ? 'assets/sounds/begin.mp3' : 'assets/sounds/end.mp3';
+        let ls = localStorage.getItem("voiceOption");
+        if (ls) {
+            this.voiceOption = ls;
         }
+        let audio = (start) ? `assets/audios/noite/${this.voiceOption}/noite.mp3` : `assets/audios/noite/${this.voiceOption}/amanhecer.mp3`;
 
         return new Promise((resolve, reject) => {
             this.currentAudio = new Audio(audio);
@@ -62,17 +60,12 @@ class AudioService {
         });
     }
 
-    selectVoice(audios: CharacterAudio, useAI: Number): Array<string> {
-
-        //assets/audios/{slug}/tts/acordar.mp3
-        switch (useAI) {
-            case 1:
-                return audios.legacy;
-            case 2:
-                return audios.ttsmp3;
-            default:
-                return audios.legacy;
+    selectVoice(slug: string, begin: boolean): string {
+        let ls = localStorage.getItem("voiceOption");
+        if (ls) {
+            this.voiceOption = ls;
         }
+        return (begin) ? `assets/audios/${slug}/${this.voiceOption}/acordar.mp3` : `assets/audios/${slug}/${this.voiceOption}/adormecer.mp3`;
     }
 
     async playAudiosSequentially(sources: Character[], currentPlayingAudio: { value: string }): Promise<void> {
@@ -81,15 +74,13 @@ class AudioService {
             currentPlayingAudio.value = source.name;
 
             if (!this.isPlaying) break;
-            await this.playAudio(this.selectVoice(source.audios, 2)[0]);
-            // await this.playAudio(this.selectVoice(source.slug, begin: true));
+            await this.playAudio(this.selectVoice(source.slug, true));
 
             if (!this.isPlaying) break;
             await new Promise(resolve => setTimeout(resolve, source.interval));
 
             if (!this.isPlaying) break;
-            await this.playAudio(this.selectVoice(source.audios, 2)[1]);
-            //await this.playAudio(this.selectVoice(source.slug, begin: false));
+            await this.playAudio(this.selectVoice(source.slug, false));
 
             await this.waitForAWhile(1000);
         }

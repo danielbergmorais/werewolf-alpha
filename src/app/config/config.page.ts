@@ -11,6 +11,7 @@ import { Character, charactersList } from '../services/characters.list';
 export class ConfigPage implements OnInit {
     public characters: Array<Character>
     private selectedsIds: Array<number> = []
+    public voiceOption: string | null = localStorage.getItem("voiceOption");
 
     constructor(private router: Router) {
         this.characters = charactersList;
@@ -51,5 +52,11 @@ export class ConfigPage implements OnInit {
         this.selectedsIds.sort((a: number, b: number) => a - b);
         localStorage.setItem("selectedsIds", JSON.stringify(this.selectedsIds));
     }
+
+    onVoiceChange(event: any) {
+        let voice = event.detail.value;
+        localStorage.setItem("voiceOption", voice);
+    }
+
 
 }

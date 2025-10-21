@@ -1,13 +1,9 @@
-export interface CharacterAudio {
-    legacy: Array<string>,
-    ttsmp3: Array<string>,
-}
 
 export interface Character {
     id: number,
-    name: string,
     img: string,
-    audios: CharacterAudio,
+    slug: string,
+    name: string,
     interval: number,
     description?: string,
 }
@@ -16,14 +12,9 @@ export interface Character {
 export const charactersList = [
     {
         id: 0,
-        name: 'Sentinela',
         img: '/assets/sprites/sentinela.jpg',
-        audios: {
-            legacy: [
-            ],
-            ttsmp3: [
-            ]
-        },
+        slug: 'sentinela',
+        name: 'Sentinela',
         interval: 3000,
         description: "O Sentinela acorda e pode colocar uma ficha de escudo sobre a carta de qualquer jogador, exceto a sua própria." +
             "Essa carta não pode ser vista nem movida, e não pode receber uma ficha de Artefato. " +
@@ -40,18 +31,9 @@ export const charactersList = [
     },
     {
         id: 1,
-        name: 'Lobisomem',
         img: '/assets/sprites/lobisomem.jpg',
-        audios: {
-            legacy: [
-                '/assets/audios/lobisomem/lobisomem-1.mp3',
-                '/assets/audios/lobisomem/lobisomem-2.mp3'
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/lobisomens-1.mp3',
-                '/assets/audios-ai/lobisomens-2.mp3'
-            ]
-        },
+        slug: 'lobisomens',
+        name: 'Lobisomem',
         interval: 2500,
         description: "A noite, todos os lobisomens acordam e se reconhecem. Se ninguem abrir os olhos, " +
             "os outros lobisomens estão no centro da mesa. <br> Opção de Lobo Solitário: " +
@@ -61,20 +43,9 @@ export const charactersList = [
     },
     {
         id: 2,
-        name: 'Lobisomem Alpha',
         img: '/assets/sprites/alpha.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/lobisomem-alpha/alpha-1.mp3',
-                '/assets/audios/lobisomem-alpha/alpha-2.mp3'
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/lobisomem-alfa-1.mp3',
-                '/assets/audios-ai/lobisomem-alfa-2.mp3'
-            ]
-        },
-
+        slug: 'lobisomem-alpha',
+        name: 'Lobisomem Alpha',
         interval: 2500,
         description: "Se estiver jogando com o Lobo Alfa, posicione qualquer outra carta de Lobisomem " +
             "(incluindo um Lobisomem comum, o Lobisomem Místico ou o Lobisomem Sonhador) virada para baixo e " +
@@ -89,19 +60,9 @@ export const charactersList = [
     },
     {
         id: 3,
-        name: 'Lobisomem Místico',
         img: '/assets/sprites/mystic.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/lobisomem-mistico/mystic-1.mp3',
-                '/assets/audios/lobisomem-mistico/mystic-2.mp3'
-            ],
-            ttsmp3: [
-                // '/assets/audios-ai/lobisomem-mistico-1.mp3',
-                // '/assets/audios-ai/lobisomem-mistico-2.mp3'
-            ]
-        },
+        slug: 'lobisomem-mistico',
+        name: 'Lobisomem Místico',
         interval: 2500,
         description: "O Lobisomem Místico acorda junto com os outros Lobisomens. " +
             "Depois disso, o Lobisomem Místico acorda separadamente. " +
@@ -110,8 +71,9 @@ export const charactersList = [
     },
     {
         id: 4,
-        name: 'Minion',
         img: '/assets/sprites/minion.jpg',
+        name: 'Minion',
+        slug: 'minion',
         audios: {
             legacy: [
                 '/assets/audios/minion/minion-1.mp3',
@@ -132,8 +94,9 @@ export const charactersList = [
     },
     {
         id: 5,
-        name: 'Mason',
         img: '/assets/sprites/mason.jpg',
+        name: 'Mason',
+        slug: 'maçons',
         audios: {
             legacy: [
                 '/assets/audios/mason/mason-1.mp3',
@@ -151,57 +114,27 @@ export const charactersList = [
     },
     {
         id: 6,
-        name: 'Vidente',
         img: '/assets/sprites/vidente.jpg',
-        audios: {
-            legacy: [
-                '/assets/audios/vidente/vidente-1.mp3',
-                '/assets/audios/vidente/vidente-2.mp3',
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/vidente-1.mp3',
-                '/assets/audios-ai/vidente-2.mp3'
-            ]
-        },
+        slug: 'vidente',
+        name: 'Vidente',
         interval: 3000,
         description: "A noite, o Vidente acorda e pode olhar a carta de outro jogador ou duas cartas do centro da " +
             "mesa, mas não pode move-las. <span> A Vidente está no time do vilarejo.</span>"
     },
     {
         id: 7,
-        name: 'Aprendiz de Vidente',
         img: '/assets/sprites/aprendiz-vidente.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/vidente-aprendiz/aprendiz-1.mp3',
-                '/assets/audios/vidente-aprendiz/aprendiz-2.mp3',
-            ],
-            ttsmp3: [
-                // '/assets/audios-ai/vidente-aprendiz-1.mp3',
-                // '/assets/audios-ai/vidente-aprendiz-2.mp3'
-            ]
-        },
-
+        slug: 'aprendiz-de-vidente',
+        name: 'Aprendiz de Vidente',
         interval: 3000,
         description: "A Vidente Aprendiz acorda e pode olhar uma das cartas do centro. <br> " +
             "<span>A Vidente Aprendiz faz parte da equipe da vila.</span>"
     },
     {
         id: 8,
-        name: 'Investigador Paranormal',
         img: '/assets/sprites/investigador.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/investigador-paranormal/investigador-paranormal-1.mp3',
-                '/assets/audios/investigador-paranormal/investigador-paranormal-2.mp3',
-            ],
-            ttsmp3: [
-                // '/assets/audios-ai/investigador-paranormal-1.mp3',
-                // '/assets/audios-ai/investigador-paranormal-2.mp3'
-            ]
-        },
+        slug: 'investigador-paranormal',
+        name: 'Investigador Paranormal',
         interval: 2000,
         description: "O Investigador Paranormal acorda e pode olhar as cartas de até dois outros jogadores, uma de cada vez. " +
             "Se ele vir um Lobisomem ou um Suicida (Tanner), não pode mais olhar outras cartas e se torna um Lobisomem ou Suicida, respectivamente." +
@@ -213,19 +146,9 @@ export const charactersList = [
     },
     {
         id: 9,
-        name: 'Ladrão',
         img: '/assets/sprites/ladrao.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/ladrao/ladrao-1.mp3',
-                '/assets/audios/ladrao/ladrao-2.mp3',
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/ladrao-1.mp3',
-                '/assets/audios-ai/ladrao-2.mp3'
-            ]
-        },
+        slug: 'ladrao',
+        name: 'Ladrão',
         interval: 2000,
         description: "A noite, o Ladrão acorda e pode roubar uma carta de outro jogador e colocar " +
             "sua carta no lugar da outra carta. Então o Ladrão pode olhar sua nova carta. " +
@@ -236,19 +159,9 @@ export const charactersList = [
     },
     {
         id: 10,
-        name: 'Bruxa',
         img: '/assets/sprites/bruxa.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/bruxa/bruxa-1.mp3',
-                '/assets/audios/bruxa/bruxa-2.mp3',
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/bruxa-1.mp3',
-                '/assets/audios-ai/bruxa-2.mp3'
-            ]
-        },
+        slug: 'bruxa',
+        name: 'Bruxa',
         interval: 2000,
         description: "A Bruxa acorda e pode olhar uma das cartas do centro." +
             "Se ela olhar uma carta do centro, deve trocá-la com a carta de qualquer jogador (inclusive a própria). " +
@@ -257,20 +170,9 @@ export const charactersList = [
     },
     {
         id: 11,
-        name: 'Encrenqueira',
         img: '/assets/sprites/encrenqueira.jpg',
-        audios:
-        {
-            legacy: [
-
-                '/assets/audios/encrenqueira/encrenqueira-1.mp3',
-                '/assets/audios/encrenqueira/encrenqueira-2.mp3',
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/encrenqueira-1.mp3',
-                '/assets/audios-ai/encrenqueira-2.mp3'
-            ]
-        },
+        slug: 'encrenqueira',
+        name: 'Encrenqueira',
         interval: 4000,
         description: "A noite, a Encrenqueira acorda e pode trocar as cartas de dois outros jogadores sem olhar as " +
             "cartas. Os jogadores que recebem as cartas diferentes são agora do time da carta que eles receberam, " +
@@ -279,19 +181,9 @@ export const charactersList = [
     },
     {
         id: 12,
-        name: 'Idiota da Vila',
         img: '/assets/sprites/idiota-vila.jpg',
-        audios: {
-            legacy: [
-                '/assets/audios/idiota-da-vila/idiota-1.mp3',
-                '/assets/audios/idiota-da-vila/idiota-2.mp3',
-            ],
-            ttsmp3: [
-                // '/assets/audios-ai/idiota-1.mp3',
-                // '/assets/audios-ai/idiota-2.mp3'
-            ]
-        },
-
+        slug: 'idiota-da-vila',
+        name: 'Idiota da Vila',
         interval: 6000,
         description: "O Idiota da Vila acorda e pode mover as cartas de todos os jogadores, exceto a sua própria, " +
             "uma posição para a esquerda ou para a direita. Se ele decidir mover as cartas, deve mover todas as cartas dos " +
@@ -300,19 +192,9 @@ export const charactersList = [
     },
     {
         id: 13,
-        name: 'Bêbado',
         img: '/assets/sprites/bebado.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/bebado/bebado-1.mp3',
-                '/assets/audios/bebado/bebado-2.mp3',
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/bebado-1.mp3',
-                '/assets/audios-ai/bebado-2.mp3'
-            ]
-        },
+        slug: 'bebado',
+        name: 'Bêbado',
         interval: 3000,
         description: "O Bêbado está tão bêbado que não se lembra da sua função. Quando for a hora de acordar " +
             "durante a noite, ele deve trocar sua carta de Bêbado por qualquer carta do centro, mas ele " +
@@ -321,38 +203,18 @@ export const charactersList = [
     },
     {
         id: 14,
-        name: 'Sonâmbula',
         img: '/assets/sprites/sonambula.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/sonambula/sonambula-1.mp3',
-                '/assets/audios/sonambula/sonambula-2.mp3',
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/sonambula-1.mp3',//assets/audios/{slug}/tts/acordar.mp3
-                '/assets/audios-ai/sonambula-2.mp3',//assets/audios/{slug}/tts/adormecer.mp3
-            ]
-        },
+        slug: 'sonambula',
+        name: 'Sonâmbula',
         interval: 3000,
         description: " A Sonâmbula acorda e procura pela sua carta (pra ver se ela mudou). Apenas use a Sonâmbula" +
             "se o ladrão ou encrenqueira estiverem no jogo. <span> A Sonâmbula está no time do vilarejo.</span>"
     },
     {
         id: 15,
-        name: 'Revelador',
         img: '/assets/sprites/revelador.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/revelador/revelador-1.mp3',
-                '/assets/audios/revelador/revelador-2.mp3',
-            ],
-            ttsmp3: [
-                // '/assets/audios-ai/revelador-1.mp3',
-                // '/assets/audios-ai/revelador-2.mp3'
-            ]
-        },
+        slug: 'revelador',
+        name: 'Revelador',
         interval: 3000,
         description: "O Revelador acorda e pode virar a carta de outro jogador para cima." +
             "Se a carta revelada for um Lobisomem ou um Enforcado (Tanner), ele deve virá-la novamente para baixo." +
@@ -362,26 +224,18 @@ export const charactersList = [
     },
     {
         id: 17,
-        name: 'Caçador',
         img: '/assets/sprites/caçador.jpg',
-        audios: {
-            legacy: [
-            ],
-            ttsmp3: [
-            ]
-        },
+        name: 'Caçador',
+        slug: 'caçador',
         interval: 0,
         description: "O Caçador não acorda durante a noite. Se o Caçador for eliminado,o outro jogador que ele estiver apontando é eliminado também." +
             "<br> <span> O Caçador está no time do vilarejo.</span>"
     },
     {
         id: 18,
-        name: 'Suicida',
         img: '/assets/sprites/suicida.jpg',
-        audios: {
-            legacy: [],
-            ttsmp3: []
-        },
+        name: 'Suicida',
+        slug: 'suicida',
         interval: 0,
         description: "<p> O Suicida odeia tanto seu trabalho que ele quer morrer.</p>" +
             "<ul>" +
@@ -394,18 +248,9 @@ export const charactersList = [
     },
     {
         id: 19,
-        name: 'Curador',
         img: '/assets/sprites/curador.jpg',
-        audios:
-        {
-            legacy: [
-                '/assets/audios/curador/curador-1.mp3',
-                '/assets/audios/curador/curador-2.mp3',
-            ],
-            ttsmp3: [
-
-            ]
-        },
+        slug: 'curador',
+        name: 'Curador',
         interval: 3000,
         description: "O Curador acorda e pode escolher e colocar uma ficha de Artefato virada para baixo, " +
             "aleatoriamente (sem olhar) sobre a carta de qualquer jogador (inclusive a sua própria). " +
@@ -415,14 +260,9 @@ export const charactersList = [
     },
     {
         id: 20,
-        name: 'Lobisomem Sonhador',
         img: '/assets/sprites/dreamwolf.jpg',
-        audios: {
-            legacy: [
-            ],
-            ttsmp3: [
-            ]
-        },
+        slug: 'lobisomem-dos-sonhos',
+        name: 'Lobisomem Sonhador',
         interval: 0,
         description: "O Lobisomem Sonhador não acorda com os outros Lobisomens." +
             "Quando os Lobisomens são chamados à noite, ele apenas levanta o polegar, para que os outros Lobisomens saibam quem ele é. " +
