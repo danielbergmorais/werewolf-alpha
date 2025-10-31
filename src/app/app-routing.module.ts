@@ -24,7 +24,8 @@ const routes: Routes = [
     },
     {
         path: 'rules',
-        loadChildren: () => import('./rules/rules.module').then(m => m.RulesPageModule)
+        loadChildren: () => import('./rules/rules.module').then(m => m.RulesPageModule),
+        data: { title: 'Regras' }
     },
 ];
 

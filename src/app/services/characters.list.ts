@@ -2,9 +2,10 @@
 export interface Character {
     id: number,
     img: string,
-    slug: string,
-    name: string,
     interval: number,
+    name: string,
+    slug: string,
+    originalOrder?: string,
     description?: string,
 }
 
@@ -13,9 +14,10 @@ export const charactersList = [
     {
         id: 0,
         img: '/assets/sprites/sentinela.jpg',
-        slug: 'sentinela',
-        name: 'Sentinela',
         interval: 3000,
+        name: 'Sentinela',
+        slug: 'sentinela',
+        originalOrder: '#0',
         description: "O Sentinela acorda e pode colocar uma ficha de escudo sobre a carta de qualquer jogador, exceto a sua própria." +
             "Essa carta não pode ser vista nem movida, e não pode receber uma ficha de Artefato. " +
             "A ficha de escudo impede que os seguintes papéis vejam ou movam sua própria carta, caso ela esteja protegida: " +
@@ -32,9 +34,10 @@ export const charactersList = [
     {
         id: 1,
         img: '/assets/sprites/lobisomem.jpg',
-        slug: 'lobisomens',
-        name: 'Lobisomem',
         interval: 2500,
+        name: 'Lobisomem',
+        slug: 'lobisomens',
+        originalOrder: '#2',
         description: "A noite, todos os lobisomens acordam e se reconhecem. Se ninguem abrir os olhos, " +
             "os outros lobisomens estão no centro da mesa. <br> Opção de Lobo Solitário: " +
             "Se houver apenas um lobisomem no jogo, o Lobisomem pode olhar uma carta no centro. " +
@@ -44,9 +47,10 @@ export const charactersList = [
     {
         id: 2,
         img: '/assets/sprites/alpha.jpg',
-        slug: 'lobisomem-alpha',
-        name: 'Lobisomem Alpha',
         interval: 2500,
+        name: 'Lobisomem Alpha',
+        slug: 'lobisomem-alpha',
+        originalOrder: '#2-B',
         description: "Se estiver jogando com o Lobo Alfa, posicione qualquer outra carta de Lobisomem " +
             "(incluindo um Lobisomem comum, o Lobisomem Místico ou o Lobisomem Sonhador) virada para baixo e " +
             "perpendicular às três cartas centrais (veja a imagem abaixo para um exemplo de onde colocar a carta de Lobisomem Central). " +
@@ -61,9 +65,10 @@ export const charactersList = [
     {
         id: 3,
         img: '/assets/sprites/mystic.jpg',
-        slug: 'lobisomem-mistico',
-        name: 'Lobisomem Místico',
         interval: 2500,
+        name: 'Lobisomem Místico',
+        slug: 'lobisomem-mistico',
+        originalOrder: '#2-C',
         description: "O Lobisomem Místico acorda junto com os outros Lobisomens. " +
             "Depois disso, o Lobisomem Místico acorda separadamente. " +
             "O Lobisomem Místico pode olhar a carta de outro jogador. <br> " +
@@ -72,19 +77,10 @@ export const charactersList = [
     {
         id: 4,
         img: '/assets/sprites/minion.jpg',
+        interval: 2500,
         name: 'Minion',
         slug: 'minion',
-        audios: {
-            legacy: [
-                '/assets/audios/minion/minion-1.mp3',
-                '/assets/audios/minion/minion-2.mp3'
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/minion-1.mp3',
-                '/assets/audios-ai/minion-2.mp3'
-            ]
-        },
-        interval: 2500,
+        originalOrder: '#3',
         description: " Age logo após a ação dos Lobisomens. o Minion acorda e ve quem são os Lobisomens, " +
             "Durante esta fase, todos os Lobisomens colocam seus dedões para cima para que o Minion " +
             " possa ver quem são. Os Lobisomens não sabem quem é o Minion. Se o Minion for eliminado e " +
@@ -95,19 +91,10 @@ export const charactersList = [
     {
         id: 5,
         img: '/assets/sprites/mason.jpg',
+        interval: 2000,
         name: 'Mason',
         slug: 'maçons',
-        audios: {
-            legacy: [
-                '/assets/audios/mason/mason-1.mp3',
-                '/assets/audios/mason/mason-2.mp3'
-            ],
-            ttsmp3: [
-                '/assets/audios-ai/maçons-1.mp3',
-                '/assets/audios-ai/maçons-2.mp3'
-            ]
-        },
-        interval: 2000,
+        originalOrder: '#4',
         description: "A Quando estiver usando os Maçons, coloque os dois no jogo. O Maçom acorda durante a noite e " +
             "procura o outro Maçom. Se o Maçom não encontrar outro Maçom, ele sabe que o outro está no centro da mesa. <br> " +
             "<span> Os Maçons está no time do vilarejo.</span>"
@@ -115,41 +102,44 @@ export const charactersList = [
     {
         id: 6,
         img: '/assets/sprites/vidente.jpg',
-        slug: 'vidente',
-        name: 'Vidente',
         interval: 3000,
+        name: 'Vidente',
+        slug: 'vidente',
+        originalOrder: '#5',
         description: "A noite, o Vidente acorda e pode olhar a carta de outro jogador ou duas cartas do centro da " +
             "mesa, mas não pode move-las. <span> A Vidente está no time do vilarejo.</span>"
     },
     {
         id: 7,
         img: '/assets/sprites/aprendiz-vidente.jpg',
-        slug: 'aprendiz-de-vidente',
-        name: 'Aprendiz de Vidente',
         interval: 3000,
+        name: 'Aprendiz de Vidente',
+        slug: 'aprendiz-de-vidente',
+        originalOrder: '#5-B',
         description: "A Vidente Aprendiz acorda e pode olhar uma das cartas do centro. <br> " +
             "<span>A Vidente Aprendiz faz parte da equipe da vila.</span>"
     },
     {
         id: 8,
         img: '/assets/sprites/investigador.jpg',
-        slug: 'investigador-paranormal',
-        name: 'Investigador Paranormal',
         interval: 2000,
+        name: 'Investigador Paranormal',
+        slug: 'investigador-paranormal',
+        originalOrder: '#5-C',
         description: "O Investigador Paranormal acorda e pode olhar as cartas de até dois outros jogadores, uma de cada vez. " +
             "Se ele vir um Lobisomem ou um Suicida (Tanner), não pode mais olhar outras cartas e se torna um Lobisomem ou Suicida, respectivamente." +
             "Se o Investigador Paranormal ver o Doppelgänger que viu um Lobisomem, ele continua olhando normalmente, pois não sabe o que o Doppelgänger " +
             "viu e não se torna o mesmo papel, mesmo que o Doppelgänger tenha se tornado um Lobisomem ou Suicida. <br> " +
-
             "O Investigador Paranormal faz parte da equipe da vila, a menos que encontre um Lobisomem, nesse caso, ele se junta à equipe dos Lobisomens, " +
             "ou se encontrar um Suicida, torna-se um Suicida e só vence se for eliminado."
     },
     {
         id: 9,
         img: '/assets/sprites/ladrao.jpg',
-        slug: 'ladrao',
-        name: 'Ladrão',
         interval: 2000,
+        name: 'Ladrão',
+        slug: 'ladrao',
+        originalOrder: '#6',
         description: "A noite, o Ladrão acorda e pode roubar uma carta de outro jogador e colocar " +
             "sua carta no lugar da outra carta. Então o Ladrão pode olhar sua nova carta. " +
             "O jogador que recebe a carta do Ladrão está no time da vila. O Ladrão fica no " +
@@ -160,9 +150,10 @@ export const charactersList = [
     {
         id: 10,
         img: '/assets/sprites/bruxa.jpg',
-        slug: 'bruxa',
-        name: 'Bruxa',
         interval: 2000,
+        name: 'Bruxa',
+        slug: 'bruxa',
+        originalOrder: '#6-B',
         description: "A Bruxa acorda e pode olhar uma das cartas do centro." +
             "Se ela olhar uma carta do centro, deve trocá-la com a carta de qualquer jogador (inclusive a própria). " +
             "A carta do jogador trocado deve ser colocada de volta no centro, no mesmo lugar, sem olhar para ela. " +
@@ -171,9 +162,10 @@ export const charactersList = [
     {
         id: 11,
         img: '/assets/sprites/encrenqueira.jpg',
-        slug: 'encrenqueira',
-        name: 'Encrenqueira',
         interval: 4000,
+        name: 'Encrenqueira',
+        slug: 'encrenqueira',
+        originalOrder: '#7',
         description: "A noite, a Encrenqueira acorda e pode trocar as cartas de dois outros jogadores sem olhar as " +
             "cartas. Os jogadores que recebem as cartas diferentes são agora do time da carta que eles receberam, " +
             "mesmo que eles não saibam e essa função permanece ate o final do jogo. <br>" +
@@ -182,9 +174,10 @@ export const charactersList = [
     {
         id: 12,
         img: '/assets/sprites/idiota-vila.jpg',
-        slug: 'idiota-da-vila',
-        name: 'Idiota da Vila',
         interval: 6000,
+        name: 'Idiota da Vila',
+        slug: 'idiota-da-vila',
+        originalOrder: '#7-B',
         description: "O Idiota da Vila acorda e pode mover as cartas de todos os jogadores, exceto a sua própria, " +
             "uma posição para a esquerda ou para a direita. Se ele decidir mover as cartas, deve mover todas as cartas dos " +
             "jogadores (exceto a dele), não pode mover cartas do centro, nem cartas com ficha de escudo. <br> " +
@@ -193,9 +186,10 @@ export const charactersList = [
     {
         id: 13,
         img: '/assets/sprites/bebado.jpg',
-        slug: 'bebado',
-        name: 'Bêbado',
         interval: 3000,
+        name: 'Bêbado',
+        slug: 'bebado',
+        originalOrder: '#8',
         description: "O Bêbado está tão bêbado que não se lembra da sua função. Quando for a hora de acordar " +
             "durante a noite, ele deve trocar sua carta de Bêbado por qualquer carta do centro, mas ele " +
             "não olha a sua carta. O Bêbado assume a função da carta sua frente (mesmo que ele não saiba que função é essa) " +
@@ -204,9 +198,10 @@ export const charactersList = [
     {
         id: 14,
         img: '/assets/sprites/sonambula.jpg',
-        slug: 'sonambula',
-        name: 'Sonâmbula',
         interval: 3000,
+        name: 'Sonâmbula',
+        slug: 'sonambula',
+        originalOrder: '#9',
         description: " A Sonâmbula acorda e procura pela sua carta (pra ver se ela mudou). Apenas use a Sonâmbula" +
             "se o ladrão ou encrenqueira estiverem no jogo. <span> A Sonâmbula está no time do vilarejo.</span>"
     },
@@ -216,11 +211,25 @@ export const charactersList = [
         slug: 'revelador',
         name: 'Revelador',
         interval: 3000,
+        originalOrder: '#10',
         description: "O Revelador acorda e pode virar a carta de outro jogador para cima." +
             "Se a carta revelada for um Lobisomem ou um Enforcado (Tanner), ele deve virá-la novamente para baixo." +
             "Se o Revelador revelar uma carta de Doppelgänger ou Investigador Paranormal (P.I.), ele a deixa virada para cima." +
             "O Revelador só pode virar uma carta para cima, mesmo que revele um Lobisomem ou Enforcado." +
             "<br> <span>O Revelador faz parte da equipe da vila.</span>"
+    },
+    {
+        id: 16,
+        img: '/assets/sprites/curador.jpg',
+        interval: 3000,
+        name: 'Curador',
+        slug: 'curador',
+        originalOrder: '#11',
+        description: "O Curador acorda e pode escolher e colocar uma ficha de Artefato virada para baixo, " +
+            "aleatoriamente (sem olhar) sobre a carta de qualquer jogador (inclusive a sua própria). " +
+            "Consulte a lista de artefatos para ver os efeitos de cada um. " +
+            "O Curador não pode colocar uma ficha de Artefato em uma carta que tenha uma ficha de escudo. " +
+            "<br> <span>O Curador faz parte da equipe da vila.</span>"
     },
     {
         id: 17,
@@ -248,18 +257,6 @@ export const charactersList = [
     },
     {
         id: 19,
-        img: '/assets/sprites/curador.jpg',
-        slug: 'curador',
-        name: 'Curador',
-        interval: 3000,
-        description: "O Curador acorda e pode escolher e colocar uma ficha de Artefato virada para baixo, " +
-            "aleatoriamente (sem olhar) sobre a carta de qualquer jogador (inclusive a sua própria). " +
-            "Consulte a lista de artefatos para ver os efeitos de cada um. " +
-            "O Curador não pode colocar uma ficha de Artefato em uma carta que tenha uma ficha de escudo. " +
-            "<br> <span>O Curador faz parte da equipe da vila.</span>"
-    },
-    {
-        id: 20,
         img: '/assets/sprites/dreamwolf.jpg',
         slug: 'lobisomem-dos-sonhos',
         name: 'Lobisomem Sonhador',
@@ -268,7 +265,7 @@ export const charactersList = [
             "Quando os Lobisomens são chamados à noite, ele apenas levanta o polegar, para que os outros Lobisomens saibam quem ele é. " +
             "Se estiver jogando com o Capanga (Minion), o Lobisomem Sonhador também levanta o polegar durante a fase noturna do Capanga. " +
             "<br> <span>O Lobisomem Sonhador faz parte da equipe dos Lobisomens.</span>"
-    },
+    }
 
 ]
 

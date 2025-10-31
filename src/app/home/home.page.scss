@@ -13,16 +13,17 @@
     background-size: 103%;
     background-position: center;
     background-repeat: no-repeat;
-
-    // img {
     filter: grayscale(100%);
-    // }
 
     &.active {
         filter: grayscale(0%);
     }
 }
 
+.mini {
+    height: 80px;
+    width: 80px;
+}
 
 ion-button {
     width: 80px;
@@ -36,5 +37,27 @@ ion-icon {
 
 ion-row {
     color: white;
+    text-align: center;
+}
+
+.full-height-list {
+    height: 100%;
+}
+
+ion-content {
+    display: flex;
+    flex-direction: column;
+}
+
+ion-list {
+    flex: 1;
+}
+
+ion-label {
+    font: 20px sans-serif;
+}
+
+.text-center {
+    margin-top: 20px;
     text-align: center;
 }

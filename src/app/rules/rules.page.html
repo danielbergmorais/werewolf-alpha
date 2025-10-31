@@ -171,22 +171,16 @@
                         <strong>Lobisomem:</strong>
                         Ganha se nenhum Lobisomem for eliminado e pelo menos um jogador for o Lobisomem. Se o Suicida
                         estiver no jogo, ganha se nenhum Lobisomem for eliminado e o Suicida ainda estiver vivo.
-                        <br>
-                        <br>
-                        <ion-thumbnail>
-                            <img alt="Favorito" src="/../assets/sprites/minion.jpg" />
-                        </ion-thumbnail>
-                        <br>
+                    </p>
+                    <div class="personagem" [style.background-image]="'url(/../assets/sprites/minion.jpg)'"></div>
+                    <p class="ion-padding">
                         <strong>Minion:</strong>
                         Ganha com os Lobisomens mesmo se ele for eliminado. Se nenhum jogador for um Lobisomem, ganha se
                         qualquer outro jogador for eliminado enquanto ele (minion) e o suicida estiverem vivos.
                     </p>
                     <p><strong>Time da Vila:</strong></p>
+                    <div class="personagem" [style.background-image]="'url(/../assets/sprites/aldeao.jpg)'"></div>
                     <p class="ion-padding">
-                        <ion-thumbnail>
-                            <img alt="Aldeao" src="/../assets/sprites/aldeao.jpg" />
-                        </ion-thumbnail>
-                        <br>
                         Ganha se pelo menos um dos Lobisomens for eliminado (mesmo se algum jogador do time da vila for
                         eliminado). Se nenhum jogador for o Lobisomem, só ganha se ninguém (nem mesmo o suicida ou o
                         minion) for eliminado.
@@ -195,13 +189,8 @@
                     <p>
                         <strong>Time do Suicida:</strong>
                     </p>
-
+                    <div class="personagem" [style.background-image]="'url(/../assets/sprites/suicida.jpg)'"></div>
                     <p class="ion-padding">
-
-                        <ion-thumbnail>
-                            <img alt="Curtidor" src="/../assets/sprites/suicida.jpg" />
-                        </ion-thumbnail>
-                        <br>
                         Ganha se ele (suicida) for eliminado.
                     </p>
                     <p><strong>Regras extras:</strong></p>

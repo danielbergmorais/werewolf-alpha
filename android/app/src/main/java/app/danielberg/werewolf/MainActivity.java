@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package app.danielberg.werewolf;
 
 import com.getcapacitor.BridgeActivity;
 

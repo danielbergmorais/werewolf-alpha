@@ -1,5 +1,6 @@
 <ion-content [fullscreen]="true">
     <div class="container">
+
         <ion-button (click)="play()" *ngIf="!currentPlayingAudio.isplaying" color="success">
             <ion-col>
                 <ion-row style="display: block">
@@ -17,14 +18,28 @@
                 <ion-row>Stop</ion-row>
             </ion-col>
         </ion-button>
+
+    </div>
+
+    <div *ngIf="!characters.length" class="text-center">
+        Nenhum personagem encontrado.
+        <br>
+        Adicione personagens na aba de
+        <ion-router-link routerLink="/config">
+            configurações
+        </ion-router-link>
     </div>
 
     <div class="container">
-        <div *ngFor="let p of characters">
-            <div class="personagem" id="home_{{p.name}}" style="background-image: url('{{p.img}}');"
-                [ngClass]="{active: p.name == currentPlayingAudio.value}">
-                <!-- <img src={{p.img}}> -->
-            </div>
-        </div>
+        <ion-list class="full-height-list">
+            <ion-item *ngFor="let p of characters">
+                <div class="personagem mini" id="home_{{p.name}}" style="background-image: url('{{p.img}}');"
+                    [ngClass]="{active: p.name == currentPlayingAudio.value}">
+                </div>
+                <ion-label [color]="p.name == currentPlayingAudio.value ? 'success' : ''">
+                    {{p.originalOrder}} - {{p.name}}
+                </ion-label>
+            </ion-item>
+        </ion-list>
     </div>
 </ion-content>
