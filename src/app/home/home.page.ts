@@ -17,10 +17,7 @@ export class HomePage {
     public ids: number[] = [];
 
     constructor(private router: Router) {
-        let ls = localStorage.getItem("selectedsIds");
-        if (ls) {
-            this.ids = JSON.parse(ls)
-        }
+
     }
 
     async play() {
@@ -45,7 +42,11 @@ export class HomePage {
         this.router.navigate(['/config'])
     }
 
-    ngAfterViewInit() {
+    ngOnInit() {
+        let ls = localStorage.getItem("selectedsIds");
+        if (ls) {
+            this.ids = JSON.parse(ls)
+        }
         this.ids.forEach(element => {
             const character = charactersList.find(item => item.id === element);
             if (character) {

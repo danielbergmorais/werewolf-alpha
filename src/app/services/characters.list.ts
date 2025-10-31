@@ -1,8 +1,8 @@
 
 export interface Character {
     id: number,
-    img: string,
     interval: number,
+    img: string,
     name: string,
     slug: string,
     originalOrder?: string,
@@ -13,8 +13,8 @@ export interface Character {
 export const charactersList = [
     {
         id: 0,
-        img: '/assets/sprites/sentinela.jpg',
         interval: 3000,
+        img: '/assets/sprites/sentinela.jpg',
         name: 'Sentinela',
         slug: 'sentinela',
         originalOrder: '#0',
@@ -33,8 +33,8 @@ export const charactersList = [
     },
     {
         id: 1,
+        interval: 3000,
         img: '/assets/sprites/lobisomem.jpg',
-        interval: 2500,
         name: 'Lobisomem',
         slug: 'lobisomens',
         originalOrder: '#2',
@@ -46,8 +46,8 @@ export const charactersList = [
     },
     {
         id: 2,
+        interval: 4000,
         img: '/assets/sprites/alpha.jpg',
-        interval: 2500,
         name: 'Lobisomem Alpha',
         slug: 'lobisomem-alpha',
         originalOrder: '#2-B',
@@ -64,8 +64,8 @@ export const charactersList = [
     },
     {
         id: 3,
+        interval: 4000,
         img: '/assets/sprites/mystic.jpg',
-        interval: 2500,
         name: 'Lobisomem Místico',
         slug: 'lobisomem-mistico',
         originalOrder: '#2-C',
@@ -76,8 +76,8 @@ export const charactersList = [
     },
     {
         id: 4,
+        interval: 3000,
         img: '/assets/sprites/minion.jpg',
-        interval: 2500,
         name: 'Minion',
         slug: 'minion',
         originalOrder: '#3',
@@ -90,8 +90,8 @@ export const charactersList = [
     },
     {
         id: 5,
-        img: '/assets/sprites/mason.jpg',
         interval: 2000,
+        img: '/assets/sprites/mason.jpg',
         name: 'Mason',
         slug: 'maçons',
         originalOrder: '#4',
@@ -101,8 +101,8 @@ export const charactersList = [
     },
     {
         id: 6,
+        interval: 5000,
         img: '/assets/sprites/vidente.jpg',
-        interval: 3000,
         name: 'Vidente',
         slug: 'vidente',
         originalOrder: '#5',
@@ -111,8 +111,8 @@ export const charactersList = [
     },
     {
         id: 7,
+        interval: 4000,
         img: '/assets/sprites/aprendiz-vidente.jpg',
-        interval: 3000,
         name: 'Aprendiz de Vidente',
         slug: 'aprendiz-de-vidente',
         originalOrder: '#5-B',
@@ -121,8 +121,8 @@ export const charactersList = [
     },
     {
         id: 8,
+        interval: 4000,
         img: '/assets/sprites/investigador.jpg',
-        interval: 2000,
         name: 'Investigador Paranormal',
         slug: 'investigador-paranormal',
         originalOrder: '#5-C',
@@ -135,8 +135,8 @@ export const charactersList = [
     },
     {
         id: 9,
+        interval: 4000,
         img: '/assets/sprites/ladrao.jpg',
-        interval: 2000,
         name: 'Ladrão',
         slug: 'ladrao',
         originalOrder: '#6',
@@ -149,8 +149,8 @@ export const charactersList = [
     },
     {
         id: 10,
+        interval: 4000,
         img: '/assets/sprites/bruxa.jpg',
-        interval: 2000,
         name: 'Bruxa',
         slug: 'bruxa',
         originalOrder: '#6-B',
@@ -161,8 +161,8 @@ export const charactersList = [
     },
     {
         id: 11,
+        interval: 5000,
         img: '/assets/sprites/encrenqueira.jpg',
-        interval: 4000,
         name: 'Encrenqueira',
         slug: 'encrenqueira',
         originalOrder: '#7',
@@ -173,8 +173,8 @@ export const charactersList = [
     },
     {
         id: 12,
-        img: '/assets/sprites/idiota-vila.jpg',
         interval: 6000,
+        img: '/assets/sprites/idiota-vila.jpg',
         name: 'Idiota da Vila',
         slug: 'idiota-da-vila',
         originalOrder: '#7-B',
@@ -185,8 +185,8 @@ export const charactersList = [
     },
     {
         id: 13,
+        interval: 4000,
         img: '/assets/sprites/bebado.jpg',
-        interval: 3000,
         name: 'Bêbado',
         slug: 'bebado',
         originalOrder: '#8',
@@ -197,8 +197,8 @@ export const charactersList = [
     },
     {
         id: 14,
-        img: '/assets/sprites/sonambula.jpg',
         interval: 3000,
+        img: '/assets/sprites/sonambula.jpg',
         name: 'Sonâmbula',
         slug: 'sonambula',
         originalOrder: '#9',
@@ -207,10 +207,10 @@ export const charactersList = [
     },
     {
         id: 15,
+        interval: 4000,
         img: '/assets/sprites/revelador.jpg',
         slug: 'revelador',
         name: 'Revelador',
-        interval: 3000,
         originalOrder: '#10',
         description: "O Revelador acorda e pode virar a carta de outro jogador para cima." +
             "Se a carta revelada for um Lobisomem ou um Enforcado (Tanner), ele deve virá-la novamente para baixo." +
@@ -220,8 +220,8 @@ export const charactersList = [
     },
     {
         id: 16,
-        img: '/assets/sprites/curador.jpg',
         interval: 3000,
+        img: '/assets/sprites/curador.jpg',
         name: 'Curador',
         slug: 'curador',
         originalOrder: '#11',
@@ -233,19 +233,19 @@ export const charactersList = [
     },
     {
         id: 17,
+        interval: 0,
         img: '/assets/sprites/caçador.jpg',
         name: 'Caçador',
         slug: 'caçador',
-        interval: 0,
         description: "O Caçador não acorda durante a noite. Se o Caçador for eliminado,o outro jogador que ele estiver apontando é eliminado também." +
             "<br> <span> O Caçador está no time do vilarejo.</span>"
     },
     {
         id: 18,
+        interval: 0,
         img: '/assets/sprites/suicida.jpg',
         name: 'Suicida',
         slug: 'suicida',
-        interval: 0,
         description: "<p> O Suicida odeia tanto seu trabalho que ele quer morrer.</p>" +
             "<ul>" +
             "<li>Se o Suicida for eliminado, ele vence sozinho.</li>" +
@@ -257,10 +257,10 @@ export const charactersList = [
     },
     {
         id: 19,
+        interval: 0,
         img: '/assets/sprites/dreamwolf.jpg',
         slug: 'lobisomem-dos-sonhos',
         name: 'Lobisomem Sonhador',
-        interval: 0,
         description: "O Lobisomem Sonhador não acorda com os outros Lobisomens." +
             "Quando os Lobisomens são chamados à noite, ele apenas levanta o polegar, para que os outros Lobisomens saibam quem ele é. " +
             "Se estiver jogando com o Capanga (Minion), o Lobisomem Sonhador também levanta o polegar durante a fase noturna do Capanga. " +

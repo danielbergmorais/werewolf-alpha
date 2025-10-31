@@ -23,7 +23,7 @@
                     <ion-label>Setup básico</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content">
-                    <p> A configuração do jogo é basead no número de jogadores (3-10). Para seu primeiro jogo, é
+                    <p> A configuração do jogo é baseada no número de jogadores (3-10). Para seu primeiro jogo, é
                         recomendado que
                         vocês jogem com 3 ou 5 jogadores para um jogo rápido e compreensão da mecanica.
                         (Se tiver mais jogadores, não se preocupe. O jogo é bastante rápido e todo mundo irá se divertir
@@ -224,6 +224,125 @@
                     </ion-card>
                 </div>
             </ion-accordion>
+
+            <ion-accordion value="seventh">
+                <ion-item slot="header" color="light">
+                    <ion-label>Artefatos</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <ion-card *ngFor="let artifact of artifactsList">
+                        <div class="personagem" [style.background-image]="'url(' + artifact.imgOriginalSrc + ')'">
+                        </div>
+                        <!-- <div class="personagem" [style.background-image]="'url(' + artifact.imgNewSrc + ')'">
+                        </div>  ({{ artifact.nameOriginal }})-->
+                        <ion-card-header>
+                            <ion-card-title>{{ artifact.nameNewVersion }}</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content [innerHTML]="artifact.description">
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+            </ion-accordion>
+
+            <ion-accordion value="eighth">
+                <ion-item slot="header" color="light">
+                    <ion-label>Jogando com Doppelganger</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <p>A Doppelganger pode se transformar em qualquer personagem, porém algumas ações são executadas
+                        assim que ela recebe sua nova função e as outras ações após o personagem original realizar a
+                        própria ação.</p>
+
+                    <p><strong>AÇÕES IMEDIATAS:</strong></p>
+                    <ul>
+                        <li>
+                            <strong>Sentinela:</strong>
+                            A Doppelganger-sentinela pode imediatamente colocar um token de
+                            escudo em outro jogador(não pode colocar em si mesma)
+                        </li>
+                        <li>
+                            <strong>Lobisomem Alfa:</strong>
+                            A Doppelganger-lobisomem alfa pode imediatamente trocar a carta de lobisomem do centro da
+                            mesa
+                            com a carta de outro jogador (não pode trocar com si mesma ou com o lobisomem alfa), sem
+                            olhar as cartas.
+                            Ela acorda junto da matilha de lobisomens mas não quando o lobisomem alfa acorda.
+                        </li>
+                        <li>
+                            <strong>Lobisomem Mistico:</strong>
+                            A Doppelganger-lobisomem místico pode imediatamente olhar a carta de outro jogador.
+                            Ela acorda junto da matilha de lobisomens mas não quando o lobisomem místico acorda.
+                        </li>
+                        <li>
+                            <strong>Aprendiz de Vidente:</strong>
+                            A Doppelganger-aprendiz de vidente pode imediatamente olhar uma carta do centro da mesa.
+                            Ela não acorda junto da aprendiz de vidente.
+                        </li>
+                        <li>
+                            <strong>Investigador paranormal:</strong>
+                            A Doppelganger-investigador paranormal pode imediatamente olhar a carta de outro jogador,
+                            uma por vez, ate no maximo duas cartas.
+                            Se ela ver um lobisomem, ela se torna um lobisomem. Ela não acorda junto do investigador
+                            paranormal.
+                        </li>
+                        <li>
+                            <strong>Bruxa:</strong>
+                            A Doppelganger-bruxa pode imediatamente olhar uma carta do centro da mesa, e se ela fiz isso
+                            deve trocar a carta com a carta de qualquer outro jogador sem olhar a carta anterior.
+                            Ela não acorda junto da bruxa.
+                        </li>
+                        <li>
+                            <strong>Idiota da Vila:</strong>
+                            A Doppelganger-idiota da vila pode mover todas as cartas de outros jogadores na direção da
+                            esquerda ou direita.
+                            Ela não acorda junto do idiota da vila.
+                        </li>
+                        <li>
+                            <strong>Lobisomem dos sonhos:</strong>
+                            A Doppelganger-lobisomem dos sonhos não acorda com os outros lobisomens, mas ao inves disso
+                            ela levanta o polegar.
+                        </li>
+                    </ul>
+                    <p><strong>AÇÕES SUBSEQUENTES:</strong></p>
+                    <ul>
+                        <li>
+                            <strong>Sonambula:</strong>
+                            A Doppelganger-sonambula acorda apenas quando a sonambula volta a dormir e olha sua propria
+                            carta.
+                        </li>
+                        <li><strong>Revelador:</strong>
+                            A Doppelganger-revelador acorda apenas quando o relevador volta a dormir. Ela pode revelar
+                            uma carta para cima,
+                            se a carta for um lobisomem ou um suicida, ela deverá virar de volta para baixo.
+                        </li>
+                        <li><strong>Curador:</strong>
+                            A Doppelganger-curador acorda apenas quando o curador volta a dormir. Ela pode colocar um
+                            artefato virado para baixo em outro jogador exceto o jogador que possuir um escudo em cima
+                            da carta.
+                        </li>
+                    </ul>
+
+                    <p><strong>SEM AÇÃO DURANTE A NOITE:</strong></p>
+                    <ul>
+                        <li>
+                            <strong>Guarda-costas:</strong>
+                            Nessa função ela não faz nada durante a noite. Porém na votação o voto da
+                            Doppelganger-guarda-costas vota para proteger o jogador que ela escolheu.
+                        </li>
+                        <li>
+                            <strong>Caçador:</strong>
+                            A Doppelganger-caçador não acorda durante a noite. Se ela for eliminada na votação, ela
+                            elimina o jogador a qual ela votou.
+                        </li>
+                        <li>
+                            <strong>Suicida:</strong>
+                            A Doppelganger-suicida não acorda durante a noite. Se ela for eliminada na votação, ela
+                            ganha sozinha.
+                        </li>
+                    </ul>
+                </div>
+            </ion-accordion>
+
         </ion-accordion-group>
     </div>
 </ion-content>
