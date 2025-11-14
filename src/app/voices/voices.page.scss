@@ -1,4 +1,5 @@
 .container {
+    margin-top: 25px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -8,29 +9,24 @@
 
 .personagem {
     margin: 10px;
-    border: 4px solid red;
-    width: 140px;
     height: 140px;
+    width: 140px;
+    background-size: 103%;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
 
-    .active {
-        display: none;
-    }
-
-    .inactive {
-
-        display: block;
+    &.active {
+        filter: grayscale(0%);
     }
 }
 
-.on {
-    border-color: greenyellow;
+.mini {
+    height: 80px;
+    width: 80px;
+}
 
-    .active {
-        display: block !important;
-    }
-
-    .inactive {
-        display: none !important;
-
-    }
+ion-row {
+    text-align: center;
+    color: white;
 }

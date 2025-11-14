@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NativeAudio } from '@capacitor-community/native-audio';
 import { Router } from '@angular/router';
 import { audioService } from '../services/audio.service';
 import { Character, charactersList } from '../services/characters.list';
@@ -54,6 +53,4 @@ export class HomePage {
             }
         });
     }
-
-
 }
