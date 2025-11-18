@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { charactersList } from '../services/characters.list';
+import { charactersList, vampireList } from '../services/characters.list';
 
 interface Artifacts {
     nameOriginal: string;
@@ -17,6 +17,8 @@ interface Artifacts {
 
 export class RulesPage implements OnInit {
     charactersList = charactersList;
+    vampireList = vampireList;
+
     artifactsList: Array<Artifacts> = [
         {
             nameOriginal: 'Claw of the Werewolf',

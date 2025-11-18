@@ -224,8 +224,25 @@
                     </ion-card>
                 </div>
             </ion-accordion>
-
             <ion-accordion value="seventh">
+                <ion-item slot="header" color="light">
+                    <ion-label>Ações dos personagens Vampire</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <ion-card *ngFor="let char of vampireList">
+                        <div class="personagem" [style.background-image]="'url(' + char.img + ')'">
+                        </div>
+                        <ion-card-header>
+                            <ion-card-title>{{ char.name }}</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content [innerHTML]="char.description">
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+            </ion-accordion>
+
+            <ion-accordion value="eighth">
                 <ion-item slot="header" color="light">
                     <ion-label>Artefatos</ion-label>
                 </ion-item>
@@ -244,7 +261,7 @@
                 </div>
             </ion-accordion>
 
-            <ion-accordion value="eighth">
+            <ion-accordion value="nineth">
                 <ion-item slot="header" color="light">
                     <ion-label>Jogando com Doppelganger</ion-label>
                 </ion-item>

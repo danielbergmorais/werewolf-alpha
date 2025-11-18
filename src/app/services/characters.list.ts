@@ -6,18 +6,194 @@ export interface Character {
     name: string,
     slug: string,
     originalOrder?: string,
+    dusker?: boolean,
     description?: string,
 }
 
 
-export const charactersList = [
+export const vampireList: Character[] = [
+    {
+        id: 1,
+        interval: 3000,
+        img: '/assets/sprites/vampire.jpg',
+        name: 'Vampiro (Vampire)',
+        slug: 'vampire',
+        originalOrder: '-6',
+        dusker: true,
+        description: "Vampiros (incluindo o Mestre[The Master] e o Conde [The Count]) acorda e procura por outros vampiros." +
+            "Então eles escolhem outro jogador não vampiro para colocar a marca do vampiro, trocando a marca original sem olhar e colocando ela no espaço da marca vazia do vampiro.<br> <br>" +
+            "<span> O Vampiro faz parte do time dos Vampiros.</span>"
+    },
+    {
+        id: 2,
+        interval: 3000,
+        img: '/assets/sprites/the-count.jpg',
+        name: 'O Conde (The Count)',
+        slug: 'count',
+        originalOrder: '-6b',
+        dusker: true,
+        description: "O Conde(The Count) acorda junto dos vampiros e procura por outros vampiros. " +
+            "Ele acorda depois que os outros vampiros fecham os olhos e deve colocar a <strong>marca de medo </strong> na frente de outro jogador não vampiro " +
+            "(ele pode não pode colocar no jogador que recebeu a marca do vampiro, pois ele agora faz parte do time dos vampiros). " +
+            "O jogador que recebeu a marca de medo não pode realizar a ação durante a noite (se ele tiver ação). <br><br> " +
+            "<span> O Conde faz parte do time dos Vampiros.</span>"
+    },
+    {
+        id: 4,
+        interval: 0,
+        img: '/assets/sprites/the-master.jpg',
+        name: 'O mestre (The Master)',
+        slug: 'master',
+        originalOrder: '',
+        dusker: true,
+        description: "O Mestre (The Master) acorda junto dos vampiros e procura por outros vampiros. " +
+            "O poder especial do Mestre só funciona durante a votação:  <br> " +
+            "Se outro Vampiro (o vampiro comum, o vampiro, o conde) votar nele, o mestre está protegido e não pode ser eliminado. " +
+            "Em vez disso, o jogador com o segundo maior número de votos (maior que 1) é eliminado. <br><br>" +
+            "<span> O Mestre faz parte do time dos Vampiros.</span>"
+    },
+    {
+        id: 3,
+        interval: 3000,
+        img: '/assets/sprites/renfield.jpg',
+        name: 'Renfield',
+        slug: 'renfield',
+        originalOrder: '-6c',
+        dusker: true,
+        description: "O Conde não acorda durante a noite. Se o Conde for eliminado, ele escolhe um jogador para se tornar o novo Conde. " +
+            "O jogador escolhido não revela sua nova identidade até o final do jogo. <br> <br>" +
+            "<span> O Renfield faz parte do time dos Vampiros.</span>"
+    },
+    {
+        id: 4,
+        interval: 3000,
+        img: '/assets/sprites/diseased.jpg',
+        name: 'Doente(Diseased)',
+        slug: 'diseased',
+        originalOrder: '-5',
+        dusker: true,
+        description: "A doente (Diseased) acorda e deve colocar a marca do doente (mark of disease) em um jogador ao lado esquerdo ou direito dela e colocar a marca original do jogador que ela escolheu (sem olhar)" +
+            " virado pra baixo no local da marca que ela tirou. <br>" +
+            "Qualquer jogador que votar no jogador <strong>Doente</strong> não pode ganhar, mesmo se o time dele for o vencedor. Porem, o voto ainda é contabilizado, e se o jogador com a carta de <strong>Doente</strong> " +
+            "ou a marca da doença for quem recebeu mais votos, ele é eliminado como qualquer outro jogador, e apenas os jogadores do time vencedor que não votaram no <strong> Doente</strong> são os jogadores vencedores.<br><br> " +
+            "<span> O Doente faz parte do time da Vila.</span>"
+    },
+    {
+        id: 5,
+        interval: 7000,
+        img: '/assets/sprites/cupid.jpg',
+        name: 'Cupido',
+        slug: 'cupid',
+        originalOrder: '-4',
+        dusker: true,
+        description: "O cúpido (Cupid) acorda e coloca a marca de amor na frente de dois outros jogadores, ela deve colocar as marcas originais no local vazio das marcas do amor. <br>" +
+            "Jogadores que receberam a marca do amor acordam juntos após a fase do crepusculo(dusk) terminar e estão enamorados. Se um dos dois jogadores for eliminado o outro também é eliminado junto. Jogadores com a marca do amor continuam no mesmo time a que a carta deles pertece. <br><br> " +
+            "<span> O Cúpido faz parte do time da Vila.</span>"
+    },
+    {
+        id: 6,
+        interval: 3000,
+        img: '/assets/sprites/instigator.jpg',
+        name: 'Instigador',
+        slug: 'instigator',
+        originalOrder: '-3',
+        dusker: true,
+        description: "O instigador acorda e coloca a marca de traidor virado para baixo na frente de outro jogador e coloca a marca original (sem olhar) no local vazio no tabuleiro. <br>" +
+            "O jogador que recebeu a marca do traidor (mark of the traitor) somente vence se alguem do time dele for eliminado. Se o jogador com a marca do traidor é a unica pessoa no time dele, a marca do traidor não tem efeito. <br><br> " +
+            "<span> O Instigador faz parte do time da Vila.</span>"
+    },
+    {
+        id: 5,
+        interval: 3000,
+        img: '/assets/sprites/priest.jpg',
+        name: 'Monge',
+        slug: 'priest',
+        originalOrder: '-2',
+        dusker: true,
+        description: "O Sacerdote (Priest) acorda e deve colocar uma marca de clareza em si proprio e em outro jogador, devolvendo as marcas originais de cada jogador para os espaços vazios do tabuleiro. <br><br> " +
+            "<span> O Sacerdote faz parte do time da Vila.</span>"
+    },
+    {
+        id: 6,
+        interval: 3000,
+        img: '/assets/sprites/assassin.jpg',
+        name: 'Assassino',
+        slug: 'assassin',
+        originalOrder: '-1',
+        dusker: true,
+        description: "O assassino acorda e deve colocar a marca do assassino em outro jogador e devolver a marca original do jogador para o espaço vazio no tabuleiro. <br>" +
+            " O assassino só consegue vencer apenas se o jogador com a marca do assassino for eliminado, independente de qual time o jogador pertença. O assassino não precisa sobreviver ao final do jogo para vencer.  <br> " +
+            "O assassino é o unico que se ele vencer, os outros times também podem vencer, então é possivel do assassino vencer junto dos vampiros, vila ou o suicida(tanner).<br>" +
+            "Se acontecer do proprio assassino acabar com a marca do assassino no final do jogo, ele somente vence se ele próprio for eliminado. <br> <br>" +
+            "<span> O assassino pertence apenas ao próprio time.</span>"
+    },
+    {
+        id: 7,
+        interval: 3000,
+        img: '/assets/sprites/apprentice-assassin.jpg',
+        name: 'Assassino Aprendiz',
+        slug: 'apprentice-assassin',
+        originalOrder: '-1B',
+        dusker: true,
+        description: "O Aprendiz de Assassino acorda imediatamente depois do assassino colocar a marca do assassino em outro jogador, enquanto o assassino esta com os olhos abertos. O aprendiz de asssino e o assassino se reconhecem. <br>" +
+            "O aprendiz de assassino vence se o assassino for eliminado. O aprendiz de asssino não precisa esta vivo no final do jogo para ganhar.  <br> " +
+            "Se não tiver um assasino no jogo, o aprendiz de asssino deve colocar a marca na frente de outro jogador e somente vence se o jogador com a marca for eliminado, incluido ele mesmo.  <br><br>" +
+            "<span> O aprendiz de assassino pertence apenas ao próprio time.</span>"
+
+    },
+    {
+        id: 8,
+        interval: 3000,
+        img: '/assets/sprites/lovers.jpg',
+        name: 'Amantes',
+        slug: 'lovers',
+        originalOrder: '0',
+        description: "Assim que iniciar a noite, os jogadores que estão enamorados ( os que possuem a marca do amor) acordam e se reconhecem um ao outro. " +
+            "Os jogadores com a marca de amor esta ligados, se um eliminado o outro jogador é eliminado também. <br> " +
+            "É possivel que somente um jogador possua a marca do amor se o instigador, sacerdote, assassino ou aprendiz de assassino estiverem no jogo. Se for esse o caso, a marca do amor não tem nenhum efeito. <br> " +
+            "<span> Possuir a marca do amor não troca o time a qual a carta do jogador pertence.</span>"
+    },
+    {
+        id: 9,
+        interval: 3000,
+        img: '/assets/sprites/marksman.jpg',
+        name: 'Marksman',
+        slug: 'marksman',
+        originalOrder: '5D',
+        description: "Marksman " +
+            "O <strong>Marksman</strong> acorda e pode olhar uma carta de jogador e a marca de outro jogador (não pode olhar a marca e carta do mesmo jogador). <br> <br> " +
+            "<span> O Marksman faz parte do time da Vila.</span>"
+    },
+    {
+        id: 10,
+        interval: 3000,
+        img: '/assets/sprites/pickpocket.jpg',
+        name: 'Pickpocket',
+        slug: 'pickpocket',
+        originalOrder: '6C',
+        description: "O Pickpocket acorda e pode trocar a marca dele com a marca de outro jogador e então ve sua nova marca. <br> <br> " +
+            "<span> O Pickpocket faz parte do time da vila.</span>"
+    },
+    {
+        id: 11,
+        interval: 3000,
+        img: '/assets/sprites/gremlin.jpg',
+        name: 'Gremlin',
+        slug: 'gremlin',
+        originalOrder: '7D',
+        description: "O <strong>Gremlin</strong> acorda durante a noite e pode troca a carta ou a marca (não os dois) entre outros dois jogadores, mas sem olhar a marca ou a carta que foi trocada. <br><br>" +
+            "<span> O Gremlin faz parte do time da Vila.</span>"
+    },
+];
+
+export const charactersList: Character[] = [
     {
         id: 0,
         interval: 3000,
         img: '/assets/sprites/sentinela.jpg',
         name: 'Sentinela',
         slug: 'sentinela',
-        originalOrder: '#0',
+        originalOrder: '0A',
         description: "O Sentinela acorda e pode colocar uma ficha de escudo sobre a carta de qualquer jogador, exceto a sua própria." +
             "Essa carta não pode ser vista nem movida, e não pode receber uma ficha de Artefato. " +
             "A ficha de escudo impede que os seguintes papéis vejam ou movam sua própria carta, caso ela esteja protegida: " +
@@ -37,7 +213,7 @@ export const charactersList = [
         img: '/assets/sprites/lobisomem.jpg',
         name: 'Lobisomem',
         slug: 'lobisomens',
-        originalOrder: '#2',
+        originalOrder: '2',
         description: "A noite, todos os lobisomens acordam e se reconhecem. Se ninguem abrir os olhos, " +
             "os outros lobisomens estão no centro da mesa. <br> Opção de Lobo Solitário: " +
             "Se houver apenas um lobisomem no jogo, o Lobisomem pode olhar uma carta no centro. " +
@@ -50,7 +226,7 @@ export const charactersList = [
         img: '/assets/sprites/alpha.jpg',
         name: 'Lobisomem Alpha',
         slug: 'lobisomem-alpha',
-        originalOrder: '#2-B',
+        originalOrder: '2B',
         description: "Se estiver jogando com o Lobo Alfa, posicione qualquer outra carta de Lobisomem " +
             "(incluindo um Lobisomem comum, o Lobisomem Místico ou o Lobisomem Sonhador) virada para baixo e " +
             "perpendicular às três cartas centrais (veja a imagem abaixo para um exemplo de onde colocar a carta de Lobisomem Central). " +
@@ -68,7 +244,7 @@ export const charactersList = [
         img: '/assets/sprites/mystic.jpg',
         name: 'Lobisomem Místico',
         slug: 'lobisomem-mistico',
-        originalOrder: '#2-C',
+        originalOrder: '2C',
         description: "O Lobisomem Místico acorda junto com os outros Lobisomens. " +
             "Depois disso, o Lobisomem Místico acorda separadamente. " +
             "O Lobisomem Místico pode olhar a carta de outro jogador. <br> " +
@@ -80,7 +256,7 @@ export const charactersList = [
         img: '/assets/sprites/minion.jpg',
         name: 'Minion',
         slug: 'minion',
-        originalOrder: '#3',
+        originalOrder: '3',
         description: " Age logo após a ação dos Lobisomens. o Minion acorda e ve quem são os Lobisomens, " +
             "Durante esta fase, todos os Lobisomens colocam seus dedões para cima para que o Minion " +
             " possa ver quem são. Os Lobisomens não sabem quem é o Minion. Se o Minion for eliminado e " +
@@ -94,7 +270,7 @@ export const charactersList = [
         img: '/assets/sprites/mason.jpg',
         name: 'Mason',
         slug: 'maçons',
-        originalOrder: '#4',
+        originalOrder: '4',
         description: "A Quando estiver usando os Maçons, coloque os dois no jogo. O Maçom acorda durante a noite e " +
             "procura o outro Maçom. Se o Maçom não encontrar outro Maçom, ele sabe que o outro está no centro da mesa. <br> " +
             "<span> Os Maçons está no time do vilarejo.</span>"
@@ -105,7 +281,7 @@ export const charactersList = [
         img: '/assets/sprites/vidente.jpg',
         name: 'Vidente',
         slug: 'vidente',
-        originalOrder: '#5',
+        originalOrder: '5',
         description: "A noite, o Vidente acorda e pode olhar a carta de outro jogador ou duas cartas do centro da " +
             "mesa, mas não pode move-las. <span> A Vidente está no time do vilarejo.</span>"
     },
@@ -115,7 +291,7 @@ export const charactersList = [
         img: '/assets/sprites/aprendiz-vidente.jpg',
         name: 'Aprendiz de Vidente',
         slug: 'aprendiz-de-vidente',
-        originalOrder: '#5-B',
+        originalOrder: '5B',
         description: "A Vidente Aprendiz acorda e pode olhar uma das cartas do centro. <br> " +
             "<span>A Vidente Aprendiz faz parte da equipe da vila.</span>"
     },
@@ -125,7 +301,7 @@ export const charactersList = [
         img: '/assets/sprites/investigador.jpg',
         name: 'Investigador Paranormal',
         slug: 'investigador-paranormal',
-        originalOrder: '#5-C',
+        originalOrder: '5C',
         description: "O Investigador Paranormal acorda e pode olhar as cartas de até dois outros jogadores, uma de cada vez. " +
             "Se ele vir um Lobisomem ou um Suicida (Tanner), não pode mais olhar outras cartas e se torna um Lobisomem ou Suicida, respectivamente." +
             "Se o Investigador Paranormal ver o Doppelgänger que viu um Lobisomem, ele continua olhando normalmente, pois não sabe o que o Doppelgänger " +
@@ -139,7 +315,7 @@ export const charactersList = [
         img: '/assets/sprites/ladrao.jpg',
         name: 'Ladrão',
         slug: 'ladrao',
-        originalOrder: '#6',
+        originalOrder: '6',
         description: "A noite, o Ladrão acorda e pode roubar uma carta de outro jogador e colocar " +
             "sua carta no lugar da outra carta. Então o Ladrão pode olhar sua nova carta. " +
             "O jogador que recebe a carta do Ladrão está no time da vila. O Ladrão fica no " +
@@ -153,7 +329,7 @@ export const charactersList = [
         img: '/assets/sprites/bruxa.jpg',
         name: 'Bruxa',
         slug: 'bruxa',
-        originalOrder: '#6-B',
+        originalOrder: '6B',
         description: "A Bruxa acorda e pode olhar uma das cartas do centro." +
             "Se ela olhar uma carta do centro, deve trocá-la com a carta de qualquer jogador (inclusive a própria). " +
             "A carta do jogador trocado deve ser colocada de volta no centro, no mesmo lugar, sem olhar para ela. " +
@@ -165,7 +341,7 @@ export const charactersList = [
         img: '/assets/sprites/encrenqueira.jpg',
         name: 'Encrenqueira',
         slug: 'encrenqueira',
-        originalOrder: '#7',
+        originalOrder: '7',
         description: "A noite, a Encrenqueira acorda e pode trocar as cartas de dois outros jogadores sem olhar as " +
             "cartas. Os jogadores que recebem as cartas diferentes são agora do time da carta que eles receberam, " +
             "mesmo que eles não saibam e essa função permanece ate o final do jogo. <br>" +
@@ -177,7 +353,7 @@ export const charactersList = [
         img: '/assets/sprites/idiota-vila.jpg',
         name: 'Idiota da Vila',
         slug: 'idiota-da-vila',
-        originalOrder: '#7-B',
+        originalOrder: '7B',
         description: "O Idiota da Vila acorda e pode mover as cartas de todos os jogadores, exceto a sua própria, " +
             "uma posição para a esquerda ou para a direita. Se ele decidir mover as cartas, deve mover todas as cartas dos " +
             "jogadores (exceto a dele), não pode mover cartas do centro, nem cartas com ficha de escudo. <br> " +
@@ -189,7 +365,7 @@ export const charactersList = [
         img: '/assets/sprites/bebado.jpg',
         name: 'Bêbado',
         slug: 'bebado',
-        originalOrder: '#8',
+        originalOrder: '8',
         description: "O Bêbado está tão bêbado que não se lembra da sua função. Quando for a hora de acordar " +
             "durante a noite, ele deve trocar sua carta de Bêbado por qualquer carta do centro, mas ele " +
             "não olha a sua carta. O Bêbado assume a função da carta sua frente (mesmo que ele não saiba que função é essa) " +
@@ -201,7 +377,7 @@ export const charactersList = [
         img: '/assets/sprites/sonambula.jpg',
         name: 'Sonâmbula',
         slug: 'sonambula',
-        originalOrder: '#9',
+        originalOrder: '9',
         description: " A Sonâmbula acorda e procura pela sua carta (pra ver se ela mudou). Apenas use a Sonâmbula" +
             "se o ladrão ou encrenqueira estiverem no jogo. <span> A Sonâmbula está no time do vilarejo.</span>"
     },
@@ -211,7 +387,7 @@ export const charactersList = [
         img: '/assets/sprites/revelador.jpg',
         slug: 'revelador',
         name: 'Revelador',
-        originalOrder: '#10',
+        originalOrder: '10',
         description: "O Revelador acorda e pode virar a carta de outro jogador para cima." +
             "Se a carta revelada for um Lobisomem ou um Enforcado (Tanner), ele deve virá-la novamente para baixo." +
             "Se o Revelador revelar uma carta de Doppelgänger ou Investigador Paranormal (P.I.), ele a deixa virada para cima." +
@@ -224,7 +400,7 @@ export const charactersList = [
         img: '/assets/sprites/curador.jpg',
         name: 'Curador',
         slug: 'curador',
-        originalOrder: '#11',
+        originalOrder: '11',
         description: "O Curador acorda e pode escolher e colocar uma ficha de Artefato virada para baixo, " +
             "aleatoriamente (sem olhar) sobre a carta de qualquer jogador (inclusive a sua própria). " +
             "Consulte a lista de artefatos para ver os efeitos de cada um. " +
@@ -269,3 +445,27 @@ export const charactersList = [
 
 ]
 
+
+export function compareOrder(a: string, b: string) {
+    // separa número e sufixo 
+    const regex = /^(-?\d+)([a-z]*)$/i;
+    const [, numA, sufA] = a.match(regex) || [];
+    const [, numB, sufB] = b.match(regex) || [];
+
+    if (+numA !== +numB) {
+        return +numA - +numB;
+    }
+
+    // ordem das letras: '' < 'a' < 'b'...
+    return sufA.localeCompare(sufB);
+}
+
+export function isDusker(order: string): boolean {
+    const regex = /^(-?\d+)([a-z]*)$/i;
+    const match = order.match(regex);
+
+    if (!match) return false;
+
+    const num = Number(match[1]);
+    return num < 0;
+}

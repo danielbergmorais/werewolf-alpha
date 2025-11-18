@@ -9,17 +9,13 @@ import { audioService } from '../services/audio.service';
 })
 export class VoicesPage implements OnInit {
     charactersList = charactersList;
-    voiceOption = 'narakeet';
+    public voiceOption: string | null = localStorage.getItem('voiceOption') ? localStorage.getItem('voiceOption') : 'narakeet';
     constructor() { }
 
     ngOnInit() {
     }
 
     async play(slug: string, timeout: number = 1000) {
-        let ls = localStorage.getItem("voiceOption");
-        if (ls) {
-            this.voiceOption = ls;
-        }
         let audio1 = `assets/audios/${slug}/${this.voiceOption}/acordar.mp3`;
         let audio2 = `assets/audios/${slug}/${this.voiceOption}/adormecer.mp3`;
         await audioService.playAudio(audio1);
@@ -31,7 +27,6 @@ export class VoicesPage implements OnInit {
         audioService.stopAudio();
     }
     onVoiceChange(event: any) {
-        let voice = event.detail.value;
-        localStorage.setItem("voiceOption", voice);
+        this.voiceOption = event.detail.value;
     }
 }

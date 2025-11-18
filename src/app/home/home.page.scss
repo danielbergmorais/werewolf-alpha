@@ -61,3 +61,19 @@ ion-label {
     margin-top: 20px;
     text-align: center;
 }
+
+.block {
+
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    p {
+        padding: 20px 15px;
+    }
+}
+
+ion-modal {
+    --height: auto;
+}

@@ -11,12 +11,12 @@ import { Character, charactersList } from '../services/characters.list';
 export class ConfigPage implements OnInit {
     public characters: Array<Character>
     private selectedsIds: Array<number> = []
-    public voiceOption: string | null = localStorage.getItem("voiceOption");
+    public voiceOption: string | null = localStorage.getItem('voiceOption');
 
     constructor(private router: Router) {
         this.characters = charactersList;
 
-        let ls = localStorage.getItem("selectedsIds");
+        let ls = localStorage.getItem('selectedsIds');
 
         if (ls) {
             this.selectedsIds = JSON.parse(ls)
@@ -28,7 +28,7 @@ export class ConfigPage implements OnInit {
     ngAfterViewInit() {
         this.selectedsIds.forEach((item: number) => {
             let selectedElement = document.getElementById(item.toString());
-            if (selectedElement) selectedElement.classList.add("active")
+            if (selectedElement) selectedElement.classList.add('active')
         })
 
     }
@@ -43,19 +43,19 @@ export class ConfigPage implements OnInit {
 
         if (index >= 0) {
             this.selectedsIds.splice(index, 1);
-            if (selectedElement) selectedElement.classList.remove("active")
+            if (selectedElement) selectedElement.classList.remove('active')
         } else {
             this.selectedsIds.push(selected.id);
-            if (selectedElement) selectedElement.classList.add("active");
+            if (selectedElement) selectedElement.classList.add('active');
         }
 
         this.selectedsIds.sort((a: number, b: number) => a - b);
-        localStorage.setItem("selectedsIds", JSON.stringify(this.selectedsIds));
+        localStorage.setItem('selectedsIds', JSON.stringify(this.selectedsIds));
     }
 
     onVoiceChange(event: any) {
         let voice = event.detail.value;
-        localStorage.setItem("voiceOption", voice);
+        localStorage.setItem('voiceOption', voice);
     }
 
 
