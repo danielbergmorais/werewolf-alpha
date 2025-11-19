@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Character, charactersList } from '../services/characters.list';
+import { Character, charactersList, vampireList } from '../services/characters.list';
+
 
 @Component({
     selector: 'app-config',
@@ -10,52 +11,56 @@ import { Character, charactersList } from '../services/characters.list';
 
 export class ConfigPage implements OnInit {
     public characters: Array<Character>
-    private selectedsIds: Array<number> = []
+
+    private selectedsSlugs: Array<string> = []
     public voiceOption: string | null = localStorage.getItem('voiceOption');
+    public timeOption: string | null = localStorage.getItem('voteTime');
 
     constructor(private router: Router) {
-        this.characters = charactersList;
+        this.characters = charactersList.concat(vampireList);
 
-        let ls = localStorage.getItem('selectedsIds');
+        let ls = localStorage.getItem('selectedsSlugs');
 
         if (ls) {
-            this.selectedsIds = JSON.parse(ls)
+            this.selectedsSlugs = JSON.parse(ls)
         }
     }
 
     ngOnInit() { }
 
     ngAfterViewInit() {
-        this.selectedsIds.forEach((item: number) => {
-            let selectedElement = document.getElementById(item.toString());
+        this.selectedsSlugs.forEach((item: string) => {
+            let selectedElement = document.getElementById(item);
             if (selectedElement) selectedElement.classList.add('active')
         })
-
     }
 
-    onSelect(id: number) {
+    onSelect(slug: string) {
 
-        let selected = this.characters.find(item => item.id === id);
+        const selected = this.characters.find(item => item.slug === slug);
         if (!selected) return;
 
-        let index = this.selectedsIds.findIndex(item => item === id);
-        let selectedElement = document.getElementById(id.toString());
+        let index = this.selectedsSlugs.findIndex(item => item === selected.slug);
+        let selectedElement = document.getElementById(slug);
 
         if (index >= 0) {
-            this.selectedsIds.splice(index, 1);
+            this.selectedsSlugs.splice(index, 1);
             if (selectedElement) selectedElement.classList.remove('active')
         } else {
-            this.selectedsIds.push(selected.id);
+            this.selectedsSlugs.push(selected.slug);
             if (selectedElement) selectedElement.classList.add('active');
         }
 
-        this.selectedsIds.sort((a: number, b: number) => a - b);
-        localStorage.setItem('selectedsIds', JSON.stringify(this.selectedsIds));
+        localStorage.setItem('selectedsSlugs', JSON.stringify(this.selectedsSlugs));
     }
 
     onVoiceChange(event: any) {
         let voice = event.detail.value;
         localStorage.setItem('voiceOption', voice);
+    }
+    onVoteTimeChange(event: any) {
+        let voteTime = event.detail.value;
+        localStorage.setItem('voteTime', voteTime);
     }
 
 

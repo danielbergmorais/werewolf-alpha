@@ -44,12 +44,22 @@ class AudioService {
         }
     }
 
-    playStartEnd(start: boolean): Promise<void> {
+    playStartEnd(start: boolean, isDusker: boolean = false): Promise<void> {
         let ls = localStorage.getItem("voiceOption");
         if (ls) {
             this.voiceOption = ls;
         }
-        let audio = (start) ? `assets/audios/noite/${this.voiceOption}/noite.mp3` : `assets/audios/noite/${this.voiceOption}/amanhecer.mp3`;
+        let audio: string;
+
+        if (isDusker) {
+            audio = (start)
+                ? `assets/audios/dusk/${this.voiceOption}/inicio.mp3`
+                : `assets/audios/dusk/${this.voiceOption}/fim.mp3`;
+        } else {
+            audio = (start)
+                ? `assets/audios/noite/${this.voiceOption}/noite.mp3`
+                : `assets/audios/noite/${this.voiceOption}/amanhecer.mp3`;
+        }
 
         return new Promise((resolve, reject) => {
             this.currentAudio = new Audio(audio);
@@ -68,8 +78,16 @@ class AudioService {
         return (begin) ? `assets/audios/${slug}/${this.voiceOption}/acordar.mp3` : `assets/audios/${slug}/${this.voiceOption}/adormecer.mp3`;
     }
 
-    async playAudiosSequentially(sources: Character[], currentPlayingAudio: { value: string }): Promise<void> {
+    async playAudiosSequentially(sources: Character[], currentPlayingAudio: { value: string }, isDusker: boolean = false): Promise<void> {
+
         for (const source of sources) {
+            if (isDusker && !source.dusker) {
+                continue;
+            }
+            if (!isDusker && source.dusker) {
+                continue;
+            }
+
             console.log('Playing audios for character:', source.name);
             currentPlayingAudio.value = source.name;
 
@@ -79,6 +97,9 @@ class AudioService {
             if (!this.isPlaying) break;
             await new Promise(resolve => setTimeout(resolve, source.interval));
 
+            if (source.slug === 'assassin' && sources.some(s => s.slug === 'apprentice-assassin')) {
+                continue;
+            }
             if (!this.isPlaying) break;
             await this.playAudio(this.selectVoice(source.slug, false));
 

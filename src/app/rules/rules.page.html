@@ -250,8 +250,6 @@
                     <ion-card *ngFor="let artifact of artifactsList">
                         <div class="personagem" [style.background-image]="'url(' + artifact.imgOriginalSrc + ')'">
                         </div>
-                        <!-- <div class="personagem" [style.background-image]="'url(' + artifact.imgNewSrc + ')'">
-                        </div>  ({{ artifact.nameOriginal }})-->
                         <ion-card-header>
                             <ion-card-title>{{ artifact.nameNewVersion }}</ion-card-title>
                         </ion-card-header>
@@ -260,8 +258,25 @@
                     </ion-card>
                 </div>
             </ion-accordion>
-
             <ion-accordion value="nineth">
+                <ion-item slot="header" color="light">
+                    <ion-label>Marcas</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                    <ion-card *ngFor="let mark of marksList">
+                        <div class="personagem" [style.background-image]="'url(' + mark.imgSrc + ')'">
+                        </div>
+
+                        <ion-card-header>
+                            <ion-card-title>{{ mark.name }}</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content [innerHTML]="mark.description">
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+            </ion-accordion>
+
+            <ion-accordion value="tenth">
                 <ion-item slot="header" color="light">
                     <ion-label>Jogando com Doppelganger</ion-label>
                 </ion-item>

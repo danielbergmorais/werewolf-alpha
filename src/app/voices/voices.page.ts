@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { charactersList } from '../services/characters.list';
+import { charactersList, vampireList } from '../services/characters.list';
 import { audioService } from '../services/audio.service';
 
 @Component({
@@ -9,10 +9,14 @@ import { audioService } from '../services/audio.service';
 })
 export class VoicesPage implements OnInit {
     charactersList = charactersList;
+    vampireList = vampireList;
+
     public voiceOption: string | null = localStorage.getItem('voiceOption') ? localStorage.getItem('voiceOption') : 'narakeet';
     constructor() { }
 
     ngOnInit() {
+        this.removeAllWithZeroInterval(this.charactersList, 'interval');
+        this.removeAllWithZeroInterval(this.vampireList, 'interval');
     }
 
     async play(slug: string, timeout: number = 1000) {
@@ -28,5 +32,14 @@ export class VoicesPage implements OnInit {
     }
     onVoiceChange(event: any) {
         this.voiceOption = event.detail.value;
+    }
+
+    removeAllWithZeroInterval(array: any[], attr: string = 'interval') {
+        // mantém apenas os itens cujo atributo seja diferente de 0
+        const filtered = array.filter(item => item[attr] !== 0);
+
+        // atualiza o array original
+        array.length = 0;
+        array.push(...filtered);
     }
 }

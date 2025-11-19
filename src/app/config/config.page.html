@@ -1,23 +1,30 @@
 <ion-content [fullscreen]="true">
+
     <div class="container">
-        <h3>Selecione a voz de narração</h3>
-        <ion-segment [value]="voiceOption" (ionChange)="onVoiceChange($event)">
-            <ion-segment-button value="narakeet">
-                <ion-label>Felipe</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="ttsmp3">
-                <ion-label>Onyx</ion-label>
-            </ion-segment-button>
-        </ion-segment>
-        <h3>Escolha os Personagens</h3>
+        <h3>Tempo de votação em minutos:</h3>
+    </div>
+    <div class="container ion-padding">
+        <ion-range aria-label="Custom range" [min]="0" [max]="10" [value]="timeOption" [pin]="true" [ticks]="true"
+            [snaps]="true" (ionChange)="onVoteTimeChange($event)"></ion-range>
+    </div>
+
+    <div class="container ion-padding">
+        <ion-select label="Selecione o narrador" placeholder="Narrador" (ionChange)="onVoiceChange($event)"
+            [value]="voiceOption">
+            <ion-select-option value="narakeet">Felipe</ion-select-option>
+            <ion-select-option value="ttsmp3">Onyx</ion-select-option>
+        </ion-select>
+        <h3>Selecione os Personagens</h3>
         <br>
     </div>
 
     <div class="container">
         <div *ngFor="let c of characters">
-            <div *ngIf="c.interval > 0" class="personagem" (click)="onSelect(c.id)" id="{{c.id}}"
-                style="background-image: url('{{c.img}}');">
+            <div *ngIf="c.interval > 0 && c.slug !== 'lovers'" class="personagem" (click)="onSelect(c.slug)"
+                id="{{c.slug}}" style="background-image: url('{{c.img}}');">
             </div>
         </div>
     </div>
+
+
 </ion-content>

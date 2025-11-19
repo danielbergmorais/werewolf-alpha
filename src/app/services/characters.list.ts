@@ -2,36 +2,40 @@
 export interface Character {
     id: number,
     interval: number,
+    dusker: boolean,
     img: string,
     name: string,
     slug: string,
-    originalOrder?: string,
-    dusker?: boolean,
+    originalOrder: string,
     description?: string,
 }
 
+const intervalBetweenCharacters = 4000;
+const longIntervalBetweenCharacters = 7000;
+const veryLongIntervalBetweenCharacters = 10000;
+const noInterval = 0;
 
 export const vampireList: Character[] = [
     {
         id: 1,
-        interval: 3000,
+        interval: intervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/vampire.jpg',
         name: 'Vampiro (Vampire)',
         slug: 'vampire',
         originalOrder: '-6',
-        dusker: true,
         description: "Vampiros (incluindo o Mestre[The Master] e o Conde [The Count]) acorda e procura por outros vampiros." +
             "Então eles escolhem outro jogador não vampiro para colocar a marca do vampiro, trocando a marca original sem olhar e colocando ela no espaço da marca vazia do vampiro.<br> <br>" +
             "<span> O Vampiro faz parte do time dos Vampiros.</span>"
     },
     {
         id: 2,
-        interval: 3000,
+        interval: intervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/the-count.jpg',
         name: 'O Conde (The Count)',
         slug: 'count',
         originalOrder: '-6b',
-        dusker: true,
         description: "O Conde(The Count) acorda junto dos vampiros e procura por outros vampiros. " +
             "Ele acorda depois que os outros vampiros fecham os olhos e deve colocar a <strong>marca de medo </strong> na frente de outro jogador não vampiro " +
             "(ele pode não pode colocar no jogador que recebeu a marca do vampiro, pois ele agora faz parte do time dos vampiros). " +
@@ -40,12 +44,12 @@ export const vampireList: Character[] = [
     },
     {
         id: 4,
-        interval: 0,
+        interval: noInterval,
+        dusker: true,
         img: '/assets/sprites/the-master.jpg',
         name: 'O mestre (The Master)',
         slug: 'master',
         originalOrder: '',
-        dusker: true,
         description: "O Mestre (The Master) acorda junto dos vampiros e procura por outros vampiros. " +
             "O poder especial do Mestre só funciona durante a votação:  <br> " +
             "Se outro Vampiro (o vampiro comum, o vampiro, o conde) votar nele, o mestre está protegido e não pode ser eliminado. " +
@@ -54,24 +58,38 @@ export const vampireList: Character[] = [
     },
     {
         id: 3,
-        interval: 3000,
+        interval: intervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/renfield.jpg',
         name: 'Renfield',
         slug: 'renfield',
         originalOrder: '-6c',
-        dusker: true,
         description: "O Conde não acorda durante a noite. Se o Conde for eliminado, ele escolhe um jogador para se tornar o novo Conde. " +
             "O jogador escolhido não revela sua nova identidade até o final do jogo. <br> <br>" +
             "<span> O Renfield faz parte do time dos Vampiros.</span>"
     },
     {
         id: 4,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/diseased.jpg',
-        name: 'Doente(Diseased)',
+        name: 'Diseased',
         slug: 'diseased',
         originalOrder: '-5',
+        description: "A doente (Diseased) acorda e deve colocar a marca do doente (mark of disease) em um jogador ao lado esquerdo ou direito dela e colocar a marca original do jogador que ela escolheu (sem olhar)" +
+            " virado pra baixo no local da marca que ela tirou. <br>" +
+            "Qualquer jogador que votar no jogador <strong>Doente</strong> não pode ganhar, mesmo se o time dele for o vencedor. Porem, o voto ainda é contabilizado, e se o jogador com a carta de <strong>Doente</strong> " +
+            "ou a marca da doença for quem recebeu mais votos, ele é eliminado como qualquer outro jogador, e apenas os jogadores do time vencedor que não votaram no <strong> Doente</strong> são os jogadores vencedores.<br><br> " +
+            "<span> O Doente faz parte do time da Vila.</span>"
+    },
+    {
+        id: 4,
+        interval: longIntervalBetweenCharacters,
         dusker: true,
+        img: '/assets/sprites/diseased.jpg',
+        name: 'Doente',
+        slug: 'doente',
+        originalOrder: '-5',
         description: "A doente (Diseased) acorda e deve colocar a marca do doente (mark of disease) em um jogador ao lado esquerdo ou direito dela e colocar a marca original do jogador que ela escolheu (sem olhar)" +
             " virado pra baixo no local da marca que ela tirou. <br>" +
             "Qualquer jogador que votar no jogador <strong>Doente</strong> não pode ganhar, mesmo se o time dele for o vencedor. Porem, o voto ainda é contabilizado, e se o jogador com a carta de <strong>Doente</strong> " +
@@ -80,47 +98,47 @@ export const vampireList: Character[] = [
     },
     {
         id: 5,
-        interval: 7000,
+        interval: longIntervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/cupid.jpg',
         name: 'Cupido',
         slug: 'cupid',
         originalOrder: '-4',
-        dusker: true,
         description: "O cúpido (Cupid) acorda e coloca a marca de amor na frente de dois outros jogadores, ela deve colocar as marcas originais no local vazio das marcas do amor. <br>" +
             "Jogadores que receberam a marca do amor acordam juntos após a fase do crepusculo(dusk) terminar e estão enamorados. Se um dos dois jogadores for eliminado o outro também é eliminado junto. Jogadores com a marca do amor continuam no mesmo time a que a carta deles pertece. <br><br> " +
             "<span> O Cúpido faz parte do time da Vila.</span>"
     },
     {
         id: 6,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/instigator.jpg',
         name: 'Instigador',
         slug: 'instigator',
         originalOrder: '-3',
-        dusker: true,
         description: "O instigador acorda e coloca a marca de traidor virado para baixo na frente de outro jogador e coloca a marca original (sem olhar) no local vazio no tabuleiro. <br>" +
             "O jogador que recebeu a marca do traidor (mark of the traitor) somente vence se alguem do time dele for eliminado. Se o jogador com a marca do traidor é a unica pessoa no time dele, a marca do traidor não tem efeito. <br><br> " +
             "<span> O Instigador faz parte do time da Vila.</span>"
     },
     {
         id: 5,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/priest.jpg',
-        name: 'Monge',
+        name: 'Sacerdote',
         slug: 'priest',
         originalOrder: '-2',
-        dusker: true,
         description: "O Sacerdote (Priest) acorda e deve colocar uma marca de clareza em si proprio e em outro jogador, devolvendo as marcas originais de cada jogador para os espaços vazios do tabuleiro. <br><br> " +
             "<span> O Sacerdote faz parte do time da Vila.</span>"
     },
     {
         id: 6,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/assassin.jpg',
         name: 'Assassino',
         slug: 'assassin',
         originalOrder: '-1',
-        dusker: true,
         description: "O assassino acorda e deve colocar a marca do assassino em outro jogador e devolver a marca original do jogador para o espaço vazio no tabuleiro. <br>" +
             " O assassino só consegue vencer apenas se o jogador com a marca do assassino for eliminado, independente de qual time o jogador pertença. O assassino não precisa sobreviver ao final do jogo para vencer.  <br> " +
             "O assassino é o unico que se ele vencer, os outros times também podem vencer, então é possivel do assassino vencer junto dos vampiros, vila ou o suicida(tanner).<br>" +
@@ -129,12 +147,12 @@ export const vampireList: Character[] = [
     },
     {
         id: 7,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: true,
         img: '/assets/sprites/apprentice-assassin.jpg',
         name: 'Assassino Aprendiz',
         slug: 'apprentice-assassin',
         originalOrder: '-1B',
-        dusker: true,
         description: "O Aprendiz de Assassino acorda imediatamente depois do assassino colocar a marca do assassino em outro jogador, enquanto o assassino esta com os olhos abertos. O aprendiz de asssino e o assassino se reconhecem. <br>" +
             "O aprendiz de assassino vence se o assassino for eliminado. O aprendiz de asssino não precisa esta vivo no final do jogo para ganhar.  <br> " +
             "Se não tiver um assasino no jogo, o aprendiz de asssino deve colocar a marca na frente de outro jogador e somente vence se o jogador com a marca for eliminado, incluido ele mesmo.  <br><br>" +
@@ -143,7 +161,8 @@ export const vampireList: Character[] = [
     },
     {
         id: 8,
-        interval: 3000,
+        interval: intervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/lovers.jpg',
         name: 'Amantes',
         slug: 'lovers',
@@ -155,7 +174,8 @@ export const vampireList: Character[] = [
     },
     {
         id: 9,
-        interval: 3000,
+        interval: veryLongIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/marksman.jpg',
         name: 'Marksman',
         slug: 'marksman',
@@ -166,7 +186,8 @@ export const vampireList: Character[] = [
     },
     {
         id: 10,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/pickpocket.jpg',
         name: 'Pickpocket',
         slug: 'pickpocket',
@@ -176,7 +197,8 @@ export const vampireList: Character[] = [
     },
     {
         id: 11,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/gremlin.jpg',
         name: 'Gremlin',
         slug: 'gremlin',
@@ -189,7 +211,8 @@ export const vampireList: Character[] = [
 export const charactersList: Character[] = [
     {
         id: 0,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/sentinela.jpg',
         name: 'Sentinela',
         slug: 'sentinela',
@@ -209,7 +232,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 1,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/lobisomem.jpg',
         name: 'Lobisomem',
         slug: 'lobisomens',
@@ -222,7 +246,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 2,
-        interval: 4000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/alpha.jpg',
         name: 'Lobisomem Alpha',
         slug: 'lobisomem-alpha',
@@ -240,7 +265,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 3,
-        interval: 4000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/mystic.jpg',
         name: 'Lobisomem Místico',
         slug: 'lobisomem-mistico',
@@ -252,7 +278,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 4,
-        interval: 3000,
+        interval: intervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/minion.jpg',
         name: 'Minion',
         slug: 'minion',
@@ -266,7 +293,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 5,
-        interval: 2000,
+        interval: intervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/mason.jpg',
         name: 'Mason',
         slug: 'maçons',
@@ -277,7 +305,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 6,
-        interval: 5000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/vidente.jpg',
         name: 'Vidente',
         slug: 'vidente',
@@ -287,7 +316,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 7,
-        interval: 4000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/aprendiz-vidente.jpg',
         name: 'Aprendiz de Vidente',
         slug: 'aprendiz-de-vidente',
@@ -297,7 +327,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 8,
-        interval: 4000,
+        interval: veryLongIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/investigador.jpg',
         name: 'Investigador Paranormal',
         slug: 'investigador-paranormal',
@@ -311,7 +342,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 9,
-        interval: 4000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/ladrao.jpg',
         name: 'Ladrão',
         slug: 'ladrao',
@@ -325,7 +357,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 10,
-        interval: 4000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/bruxa.jpg',
         name: 'Bruxa',
         slug: 'bruxa',
@@ -337,7 +370,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 11,
-        interval: 5000,
+        interval: veryLongIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/encrenqueira.jpg',
         name: 'Encrenqueira',
         slug: 'encrenqueira',
@@ -349,7 +383,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 12,
-        interval: 6000,
+        interval: veryLongIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/idiota-vila.jpg',
         name: 'Idiota da Vila',
         slug: 'idiota-da-vila',
@@ -361,7 +396,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 13,
-        interval: 4000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/bebado.jpg',
         name: 'Bêbado',
         slug: 'bebado',
@@ -373,7 +409,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 14,
-        interval: 3000,
+        interval: intervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/sonambula.jpg',
         name: 'Sonâmbula',
         slug: 'sonambula',
@@ -383,7 +420,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 15,
-        interval: 4000,
+        interval: veryLongIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/revelador.jpg',
         slug: 'revelador',
         name: 'Revelador',
@@ -396,7 +434,8 @@ export const charactersList: Character[] = [
     },
     {
         id: 16,
-        interval: 3000,
+        interval: longIntervalBetweenCharacters,
+        dusker: false,
         img: '/assets/sprites/curador.jpg',
         name: 'Curador',
         slug: 'curador',
@@ -409,19 +448,23 @@ export const charactersList: Character[] = [
     },
     {
         id: 17,
-        interval: 0,
+        interval: noInterval,
+        dusker: false,
         img: '/assets/sprites/caçador.jpg',
         name: 'Caçador',
         slug: 'caçador',
+        originalOrder: '999',
         description: "O Caçador não acorda durante a noite. Se o Caçador for eliminado,o outro jogador que ele estiver apontando é eliminado também." +
             "<br> <span> O Caçador está no time do vilarejo.</span>"
     },
     {
         id: 18,
-        interval: 0,
+        interval: noInterval,
+        dusker: false,
         img: '/assets/sprites/suicida.jpg',
         name: 'Suicida',
         slug: 'suicida',
+        originalOrder: '999',
         description: "<p> O Suicida odeia tanto seu trabalho que ele quer morrer.</p>" +
             "<ul>" +
             "<li>Se o Suicida for eliminado, ele vence sozinho.</li>" +
@@ -433,10 +476,12 @@ export const charactersList: Character[] = [
     },
     {
         id: 19,
-        interval: 0,
+        interval: noInterval,
+        dusker: false,
         img: '/assets/sprites/dreamwolf.jpg',
         slug: 'lobisomem-dos-sonhos',
         name: 'Lobisomem Sonhador',
+        originalOrder: '999',
         description: "O Lobisomem Sonhador não acorda com os outros Lobisomens." +
             "Quando os Lobisomens são chamados à noite, ele apenas levanta o polegar, para que os outros Lobisomens saibam quem ele é. " +
             "Se estiver jogando com o Capanga (Minion), o Lobisomem Sonhador também levanta o polegar durante a fase noturna do Capanga. " +
@@ -447,7 +492,6 @@ export const charactersList: Character[] = [
 
 
 export function compareOrder(a: string, b: string) {
-    // separa número e sufixo 
     const regex = /^(-?\d+)([a-z]*)$/i;
     const [, numA, sufA] = a.match(regex) || [];
     const [, numB, sufB] = b.match(regex) || [];

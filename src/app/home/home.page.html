@@ -20,6 +20,18 @@
         </ion-button>
 
     </div>
+    <div class="container">
+        <h1>
+            <div>Tempo: {{ timer$ | async}}</div>
+        </h1>
+
+        <ion-button size="small" color="primary" (click)="playTime()" *ngIf="!timing">
+            <ion-icon slot="icon-only" name="play"></ion-icon>
+        </ion-button>
+        <ion-button size="small" color="light" (click)="stopTime()" *ngIf="timing">
+            <ion-icon slot="icon-only" name="square"></ion-icon>
+        </ion-button>
+    </div>
 
     <div *ngIf="!characters.length" class="text-center">
         Nenhum personagem encontrado.
