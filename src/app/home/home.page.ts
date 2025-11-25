@@ -34,7 +34,7 @@ export class HomePage {
 
         }
         if (this.characters.some(c => !c.dusker) && this.characters.some(c => c.dusker)) {
-            timerService.setTimer(10);
+            timerService.setTimer(20);
             timerService.startTimer();
             await audioService.waitForAWhile(10000);
         }
@@ -61,7 +61,7 @@ export class HomePage {
     async playTime() {
         this.timing = true;
         let time = localStorage.getItem('voteTime') || '5';
-        timerService.setTimer(parseInt(time));
+        timerService.setTimer(parseInt(time) * 60);
 
         await timerService.startTimer();
         let randomAlertSong = ['assets/audios/alerts/zelda-1.mp3', 'assets/audios/alerts/zelda-2.mp3', 'assets/audios/alerts/zelda-3.mp3', 'assets/audios/alerts/zelda-4.mp3', 'assets/audios/alerts/zelda-5.mp3'];
