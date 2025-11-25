@@ -47,7 +47,8 @@
 
             <ion-item-sliding *ngFor="let p of characters">
                 <ion-item>
-                    <div class="personagem mini" id="home_{{p.name}}" style="background-image: url('{{p.img}}');"
+                    <div class="personagem mini" id="home_{{p.name}}"
+                        style="background-image: url('assets/sprites/{{p.img}}');"
                         [ngClass]="{active: p.name == currentPlayingAudio.value}">
                     </div>
                     <ion-label [color]="p.name == currentPlayingAudio.value ? 'success' : ''">

@@ -213,7 +213,7 @@
                 </ion-item>
                 <div class="ion-padding" slot="content">
                     <ion-card *ngFor="let char of charactersList">
-                        <div class="personagem" [style.background-image]="'url(' + char.img + ')'">
+                        <div class="personagem" [style.background-image]="'url(assets/sprites/' + char.img + ')'">
                         </div>
                         <ion-card-header>
                             <ion-card-title>{{ char.name }}</ion-card-title>
@@ -230,7 +230,7 @@
                 </ion-item>
                 <div class="ion-padding" slot="content">
                     <ion-card *ngFor="let char of vampireList">
-                        <div class="personagem" [style.background-image]="'url(' + char.img + ')'">
+                        <div class="personagem" [style.background-image]="'url(assets/sprites/' + char.img + ')'">
                         </div>
                         <ion-card-header>
                             <ion-card-title>{{ char.name }}</ion-card-title>
@@ -248,7 +248,8 @@
                 </ion-item>
                 <div class="ion-padding" slot="content">
                     <ion-card *ngFor="let artifact of artifactsList">
-                        <div class="personagem" [style.background-image]="'url(' + artifact.imgOriginalSrc + ')'">
+                        <div class="personagem"
+                            [style.background-image]="'url(assets/artifacts/' + artifact.imgOriginalSrc + ')'">
                         </div>
                         <ion-card-header>
                             <ion-card-title>{{ artifact.nameNewVersion }}</ion-card-title>
@@ -264,7 +265,7 @@
                 </ion-item>
                 <div class="ion-padding" slot="content">
                     <ion-card *ngFor="let mark of marksList">
-                        <div class="personagem" [style.background-image]="'url(' + mark.imgSrc + ')'">
+                        <div class="personagem" [style.background-image]="'url(assets/marks/' + mark.imgSrc + ')'">
                         </div>
 
                         <ion-card-header>

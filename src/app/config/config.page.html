@@ -20,8 +20,8 @@
 
     <div class="container">
         <div *ngFor="let c of characters">
-            <div *ngIf="c.interval > 0 && c.slug !== 'lovers'" class="personagem" (click)="onSelect(c.slug)"
-                id="{{c.slug}}" style="background-image: url('{{c.img}}');">
+            <div *ngIf="c.interval > 0" class="personagem" (click)="onSelect(c.slug)" id="{{c.slug}}"
+                style="background-image: url('assets/sprites/{{c.img}}');">
             </div>
         </div>
     </div>

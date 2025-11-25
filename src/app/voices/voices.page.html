@@ -13,7 +13,8 @@
         <ion-item-sliding *ngFor="let p of charactersList">
 
             <ion-item>
-                <div class="personagem mini" id="home_{{p.name}}" style="background-image: url('{{p.img}}');">
+                <div class="personagem mini" id="home_{{p.name}}"
+                    style="background-image: url('assets/sprites/{{p.img}}');">
                 </div>
                 <ion-label>{{p.originalOrder}} - {{p.name}}</ion-label>
             </ion-item>
@@ -32,7 +33,8 @@
         <ion-item-sliding *ngFor="let p of vampireList">
 
             <ion-item>
-                <div class="personagem mini" id="home_{{p.name}}" style="background-image: url('{{p.img}}');">
+                <div class="personagem mini" id="home_{{p.name}}"
+                    style="background-image: url('assets/sprites/{{p.img}}');">
                 </div>
                 <ion-label>{{p.originalOrder}} - {{p.name}}</ion-label>
             </ion-item>
