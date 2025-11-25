@@ -255,7 +255,7 @@ export const charactersList: Character[] = [
         description: "Se estiver jogando com o Lobo Alfa, posicione qualquer outra carta de Lobisomem " +
             "(incluindo um Lobisomem comum, o Lobisomem Místico ou o Lobisomem Sonhador) virada para baixo e " +
             "perpendicular às três cartas centrais (veja a imagem abaixo para um exemplo de onde colocar a carta de Lobisomem Central). " +
-            "<img src='/assets/setup.jpg' alt='Lobo Alfa Setup' style='max-width: 100%; margin-top: 10px;'/><br>" +
+            "<img src='assets/setup.jpg' alt='Lobo Alfa Setup' style='max-width: 100%; margin-top: 10px;'/><br>" +
             "Durante a noite, o Lobo Alfa acorda junto com os outros Lobisomens. Depois disso, o Lobo Alfa acorda separadamente. " +
             "O Lobo Alfa deve trocar a carta de Lobisomem Central com a carta de qualquer outro jogador (mas não pode trocar com " +
             "a própria carta nem com a carta de outro Lobisomem), sem olhar para nenhuma das duas cartas. " +

@@ -17,6 +17,7 @@ export class HomePage {
     public slugs: string[] = [];
     timer$: Observable<string> = timerService.timer$;
     timing: boolean = false;
+    timingInit: boolean = false;
 
     constructor(private router: Router) {
 
@@ -34,8 +35,8 @@ export class HomePage {
 
         }
         if (this.characters.some(c => !c.dusker) && this.characters.some(c => c.dusker)) {
-            timerService.setTimer(20);
-            timerService.startTimer();
+            timerService.setTimer(30);
+            timerService.start();
             await audioService.waitForAWhile(10000);
         }
 
@@ -58,21 +59,42 @@ export class HomePage {
         audioService.stopLoop();
     }
 
-    async playTime() {
+    playTime() {
         this.timing = true;
-        let time = localStorage.getItem('voteTime') || '5';
-        timerService.setTimer(parseInt(time) * 60);
+        this.timingInit = true;
 
-        await timerService.startTimer();
+        let time = localStorage.getItem('voteTime') || '5';
+        timerService.setTimer(parseInt(time) * 20);
+
+        this.startTime();
+    }
+
+    async startTime() {
+        await timerService.start();
+
         let randomAlertSong = ['assets/audios/alerts/zelda-1.mp3', 'assets/audios/alerts/zelda-2.mp3', 'assets/audios/alerts/zelda-3.mp3', 'assets/audios/alerts/zelda-4.mp3', 'assets/audios/alerts/zelda-5.mp3'];
         let randomIndex = Math.floor(Math.random() * randomAlertSong.length);
+
         audioService.playAudio(randomAlertSong[randomIndex]);
+
         this.timing = false;
+        this.timingInit = false;
+    }
+
+    resumeTime() {
+        this.timing = true;
+        this.startTime();
     }
 
     stopTime() {
         this.timing = false;
-        timerService.stopTimer();
+        this.timingInit = false;
+        timerService.reset();
+    }
+
+    pauseTime() {
+        this.timing = false;
+        timerService.pause();
     }
 
     navigate() {

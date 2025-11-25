@@ -25,10 +25,16 @@
             <div>Tempo: {{ timer$ | async}}</div>
         </h1>
 
-        <ion-button size="small" color="primary" (click)="playTime()" *ngIf="!timing">
+        <ion-button size="small" color="success" (click)="playTime()" *ngIf="!timing && !timingInit">
             <ion-icon slot="icon-only" name="play"></ion-icon>
         </ion-button>
-        <ion-button size="small" color="light" (click)="stopTime()" *ngIf="timing">
+        <ion-button size="small" color="light" (click)="resumeTime()" *ngIf="timingInit">
+            <ion-icon slot="icon-only" name="play"></ion-icon>
+        </ion-button>
+        <ion-button size="small" color="primary" (click)="pauseTime()">
+            <ion-icon slot="icon-only" name="pause"></ion-icon>
+        </ion-button>
+        <ion-button size="small" color="danger" (click)="stopTime()">
             <ion-icon slot="icon-only" name="square"></ion-icon>
         </ion-button>
     </div>
