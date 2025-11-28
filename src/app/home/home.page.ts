@@ -60,7 +60,7 @@ export class HomePage {
 
     playTime() {
         this.timing = true;
-        this.timingInit = true;
+        this.timingInit = false;
 
         let time = localStorage.getItem('voteTime') || '5';
         timerService.setTimer(parseInt(time) * 60);
@@ -82,6 +82,7 @@ export class HomePage {
 
     resumeTime() {
         this.timing = true;
+        this.timingInit = false;
         this.startTime();
     }
 
@@ -93,6 +94,7 @@ export class HomePage {
 
     pauseTime() {
         this.timing = false;
+        this.timingInit = true;
         timerService.pause();
     }
 

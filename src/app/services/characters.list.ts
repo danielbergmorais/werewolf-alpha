@@ -24,7 +24,7 @@ export const vampireList: Character[] = [
         name: 'Vampiro (Vampire)',
         slug: 'vampire',
         originalOrder: '-6',
-        description: "Vampiros (incluindo o Mestre[The Master] e o Conde [The Count]) acorda e procura por outros vampiros." +
+        description: "Vampiros (incluindo o Mestre[The Master] e o Conde [The Count]) acorda e procura por outros vampiros. " +
             "Então eles escolhem outro jogador não vampiro para colocar a marca do vampiro, trocando a marca original sem olhar e colocando ela no espaço da marca vazia do vampiro.<br> <br>" +
             "<span> O Vampiro faz parte do time dos Vampiros.</span>"
     },
@@ -76,8 +76,8 @@ export const vampireList: Character[] = [
         name: 'Diseased',
         slug: 'diseased',
         originalOrder: '-5',
-        description: "A doente (Diseased) acorda e deve colocar a marca do doente (mark of disease) em um jogador ao lado esquerdo ou direito dela e colocar a marca original do jogador que ela escolheu (sem olhar)" +
-            " virado pra baixo no local da marca que ela tirou. <br>" +
+        description: "A doente (Diseased) acorda e deve colocar a marca do doente (mark of disease) em um jogador ao lado esquerdo ou direito dela e colocar a marca original do jogador que ela escolheu (sem olhar) " +
+            "virado pra baixo no local da marca que ela tirou. <br>" +
             "Qualquer jogador que votar no jogador <strong>Doente</strong> não pode ganhar, mesmo se o time dele for o vencedor. Porem, o voto ainda é contabilizado, e se o jogador com a carta de <strong>Doente</strong> " +
             "ou a marca da doença for quem recebeu mais votos, ele é eliminado como qualquer outro jogador, e apenas os jogadores do time vencedor que não votaram no <strong> Doente</strong> são os jogadores vencedores.<br><br> " +
             "<span> O Doente faz parte do time da Vila.</span>"
@@ -90,8 +90,8 @@ export const vampireList: Character[] = [
         name: 'Doente',
         slug: 'doente',
         originalOrder: '-5',
-        description: "A doente (Diseased) acorda e deve colocar a marca do doente (mark of disease) em um jogador ao lado esquerdo ou direito dela e colocar a marca original do jogador que ela escolheu (sem olhar)" +
-            " virado pra baixo no local da marca que ela tirou. <br>" +
+        description: "A doente (Diseased) acorda e deve colocar a marca do doente (mark of disease) em um jogador ao lado esquerdo ou direito dela e colocar a marca original do jogador que ela escolheu (sem olhar) " +
+            "virado pra baixo no local da marca que ela tirou. <br>" +
             "Qualquer jogador que votar no jogador <strong>Doente</strong> não pode ganhar, mesmo se o time dele for o vencedor. Porem, o voto ainda é contabilizado, e se o jogador com a carta de <strong>Doente</strong> " +
             "ou a marca da doença for quem recebeu mais votos, ele é eliminado como qualquer outro jogador, e apenas os jogadores do time vencedor que não votaram no <strong> Doente</strong> são os jogadores vencedores.<br><br> " +
             "<span> O Doente faz parte do time da Vila.</span>"

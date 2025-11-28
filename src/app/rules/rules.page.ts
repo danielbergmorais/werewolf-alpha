@@ -77,7 +77,7 @@ export class RulesPage implements OnInit {
         {
             name: 'Mark of Vampire',
             description: "A marca é dada a qualquer jogador não vampiro, por escolha dos vampiros no jogo (Vampiro, Conde, Mestre). " +
-                "O jogador que recebeu essa marca é um vampiro , mas ele ainda pode usar sua ação durante a noite e votar no final do jogo." +
+                "O jogador que recebeu essa marca é um vampiro , mas ele ainda pode usar sua ação durante a noite e votar no final do jogo. " +
                 "Se o mestre acabar com essa marca ele ainda mantem o poder durante a votação. <br> Se o Renfield terminar com essa marca ele se torna um vampiro.",
             imgSrc: 'mark-vampire.png'
         },
@@ -90,19 +90,19 @@ export class RulesPage implements OnInit {
         },
         {
             name: 'Mark of Bat',
-            description: "O Renfield reivindica essa marca para si próprio e coloca sua marca no lugar vazio no tabuleiro." +
+            description: "O Renfield reivindica essa marca para si próprio e coloca sua marca no lugar vazio no tabuleiro. " +
                 "Essa marca não tem nenhum efeito especial.",
             imgSrc: 'mark-bat.png'
         },
         {
             name: 'Mark of Diseased',
-            description: "O doente (diseased) coloca essa marca em um jogador do lado esquero ou direito dele." +
+            description: "O doente (diseased) coloca essa marca em um jogador do lado esquero ou direito dele. " +
                 "Durante a votação qualquer jogador que votar em um jogaro com a marca doente não poderá ganhar.",
             imgSrc: 'mark-diseased.png'
         },
         {
             name: 'Mark of Traitor',
-            description: "O Instigador escolhe um jogador que ira ser o traidor do seu time, dando a ele a marca do traidor." +
+            description: "O Instigador escolhe um jogador que ira ser o traidor do seu time, dando a ele a marca do traidor. " +
                 "O jogador com a marca do traidor só poderá vencer se alguem do seu proprio time for eliminado, se ele for o unico membro do seu time essa marca não tem efeito.",
             imgSrc: 'mark-traitor.png'
         },
@@ -114,8 +114,8 @@ export class RulesPage implements OnInit {
         },
         {
             name: 'Mark of love',
-            description: "O cupido junta duas pessoas com essa marca, fazendo com que elas se tornem amantes." +
-                "Imediatamente após a fase da noite começar, os amantes acordam e se reconhecem. Se um jogador com a marca do amor for eliminado, o outro jogador também é eliminado imediatamente." +
+            description: "O cupido junta duas pessoas com essa marca, fazendo com que elas se tornem amantes. " +
+                "Imediatamente após a fase da noite começar, os amantes acordam e se reconhecem. Se um jogador com a marca do amor for eliminado, o outro jogador também é eliminado imediatamente. " +
                 "Se o jogador Mestre (The Master) receber essa marca e o outro jogador com essa marca for eliminado, o Mestre também é eliminado (Mesmo se um jogador vampiro tiver votado nele). <br>",
             imgSrc: 'mark-love.png'
         },

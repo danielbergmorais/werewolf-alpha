@@ -31,7 +31,7 @@
         <ion-button size="small" color="light" (click)="resumeTime()" *ngIf="timingInit">
             <ion-icon slot="icon-only" name="play"></ion-icon>
         </ion-button>
-        <ion-button size="small" color="primary" (click)="pauseTime()">
+        <ion-button size="small" color="primary" (click)="pauseTime()" *ngIf="timing">
             <ion-icon slot="icon-only" name="pause"></ion-icon>
         </ion-button>
         <ion-button size="small" color="danger" (click)="stopTime()">
