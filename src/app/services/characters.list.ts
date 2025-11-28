@@ -10,8 +10,8 @@ export interface Character {
     description?: string,
 }
 
-const intervalBetweenCharacters = 4000;
-const longIntervalBetweenCharacters = 7000;
+const intervalBetweenCharacters = 5000;
+const longIntervalBetweenCharacters = 8000;
 const veryLongIntervalBetweenCharacters = 10000;
 const noInterval = 0;
 
@@ -203,7 +203,7 @@ export const vampireList: Character[] = [
         name: 'Gremlin',
         slug: 'gremlin',
         originalOrder: '7D',
-        description: "O <strong>Gremlin</strong> acorda durante a noite e pode troca a carta ou a marca (não os dois) entre outros dois jogadores, mas sem olhar a marca ou a carta que foi trocada. <br><br>" +
+        description: "O <strong>Gremlin</strong> acorda durante a noite e pode troca a carta ou a marca (não os dois) entre outros dois jogadores diferentes, mas sem olhar a marca ou a carta que foi trocada. <br><br>" +
             "<span> O Gremlin faz parte do time da Vila.</span>"
     },
 ];

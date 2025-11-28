@@ -31,13 +31,12 @@ export class HomePage {
             await audioService.playAudiosSequentially(this.characters, this.currentPlayingAudio, true);
             await audioService.playStartEnd(false, true);
             this.stop();
-
-
         }
+
         if (this.characters.some(c => !c.dusker) && this.characters.some(c => c.dusker)) {
             timerService.setTimer(30);
             timerService.start();
-            await audioService.waitForAWhile(10000);
+            await audioService.waitForAWhile(30000);
         }
 
         if (this.characters.some(c => !c.dusker)) {
@@ -64,7 +63,7 @@ export class HomePage {
         this.timingInit = true;
 
         let time = localStorage.getItem('voteTime') || '5';
-        timerService.setTimer(parseInt(time) * 20);
+        timerService.setTimer(parseInt(time) * 60);
 
         this.startTime();
     }

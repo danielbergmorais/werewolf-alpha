@@ -21,7 +21,7 @@ Reconheçam seus companheiros.
 Maçons, fechem os olhos.
 
 Sonâmbula, acorde.
-Olhe sua própria carta e descubra se você ainda é quem pensa ser.
+Você pode olhar sua própria carta e depois virar ela para baixo.
 Sonâmbula, feche os olhos.
 
 Bêbado, acorde.
@@ -57,8 +57,8 @@ Você pode olhar uma unica carta do centro da mesa.
 Aprendiz de Vidente, feche os olhos.
 
 Investigador Paranormal, acorde.
-Você pode espiar até duas cartas de outros jogadores.
-Se em qualquer momento encontrar um Lobisomem ou um Suicida, pare imediatamente e assuma o papel dessa nova identidade.
+Você pode olhar uma carta de outro jogador, se você encontrar um Lobisomem ou um Suicida, ou um vampiro, pare imediatamente 
+e assuma o papel dessa nova identidade, senão, você pode olhar a carta de um jogador diferente.
 Investigador Paranormal, feche os olhos.
 
 Bruxa, acorde.  
@@ -98,3 +98,70 @@ A noite terminou... jogadores, acordem!
 
 Acabou o tempo... jogadores, votem em três... dois... um... Já!
 
+
+VAMPIROS
+Vampiros, acordem e procurem por outros vampiros.
+Coloquem a marca do vampiro em outro jogador que não seja vampiro.
+Vampiros, fechem os olhos.
+
+CONDE
+Conde, acorde, você deve colocar a marca de medo em outro jogador que não seja vampiro.
+Conde, feche os olhos.
+
+RENFIELD
+Vampiros, apontem para o jogador que tem a marca do vampiro.
+Vampiros, fechem os olhos.
+
+Renfield, acorde e veja quem são os vampiros e quem possui a marca do vampiro.
+Pegue a marca do morcego e troque por sua própria marca.
+
+Vampiros, abaixem suas mãos.
+Renfield, feche seus olhos.
+
+DOENTE (Di-zízd)
+Doente, acorde, você deve colocar a marca do doente em um jogador da sua esquerda ou direita.
+Doente, feche os olhos.
+
+CUPIDO
+Cupido, abra seus olhos, você deve colocar a marca do amor em dois outros jogadores.
+Cupido, feche seus olhos
+
+INSTIGADOR
+Instigador, abra seus olhos, você deve colocar a marca de traidor em outro jogador.
+Instigador, feche seus olhos.
+
+SACERDOTE
+Sacerdote, abra seus olhos. Você deve colocar as marcas de clareza, uma em si mesmo e a outra em outro jogador
+Sacerdote, feche seus olhos.
+
+ASSASSINO
+Assassino, abra seus olhos. Você deve colocar a marca do assassino em outro jogador.
+Assassino, feche seus olhos.
+
+
+APRENDIZ DE ASSASSINO
+Aprendiz de assassino, abra seus olhos e procure pelo outro assassino. Se não houver outro  assassino, coloque a marca de assassino em outro jogador.
+Assassino e Aprendiz de assassino, fechem os olhos.
+
+AMANTES
+Amantes, abram seus olhos e procure sua alma gêmea.
+Amantes, fechem os olhos.
+
+MARKSMAN
+Marksman, abra seus olhos, você pode olhar a carta de um jogador e a marca de outro jogador.
+Marksman, feche seus olhos.
+
+GREMLIN (Grémelin)
+Gremlin, abra seus olhos. Você pode trocar as marcas de dois jogadores, sem olhar as marcas, e as cartas de outros dois jogadores diferentes, sem olhar as cartas
+Gremlin, feche seus olhos.
+
+PICKPOCKET (Pik-pó-quete)
+Pickpocket, abra seus olhos, você pode trocar sua marca com a de outro jogador e olhar sua nova marca.
+Pickpocket, feche seus olhos.
+
+
+
+
+O crepúsculo se aproxima. Jogadores, fechem os olhos
+
+O crepúsculo se dissipa. Jogadores, abram seus olhos e confiram suas marcas e preparem-se para a noite.
